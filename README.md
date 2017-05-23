@@ -24,7 +24,18 @@ Overall a very positive and productive day. We have a hell of a lot to do in 2 w
 
 The earth looks mighty fine from up here.
 
-Naz
+*Major Naz*
+
+#### Day 2
+Building on our day 1 success we were all energized to dive a little deeper into VR. However after a good start we kept hitting blockers and our lack of experience in VR was becoming apparent. Post lunch we changed course and started to experiment with using [A-Frame](https://aframe.io) to build our VR model. Being built by the originators of WebVR and providing a clear structure to `three.js`, we were started to see immediate results.
+
+By the end of the day we'd built a VR environment compatible with Google Cardboard that we can traverse!
+
+ ![Mars_landing](images/vr_mars.png)
+
+A great end to a tough day, searching for our purpose...but we're one step closer.
+
+*Shipmate Odendaal*
 
 ### Technology
 TBC
