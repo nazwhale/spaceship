@@ -1,48 +1,14 @@
 <html>
   <head>
     <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
-    <script src="https://npmcdn.com/aframe-layout-component@3.0.1"></script>
-    <script src="https://npmcdn.com/aframe-template-component@3.1.1"></script>
-   <script> AFRAME.registerComponent('set-image', {
-      schema: {
-        on: {type: 'string'},
-        target: {type: 'selector'},
-        src: {type: 'string'},
-        dur: {type: 'number', default: 300}
-      },
-
-      init: function () {
-        var data = this.data;
-        var el = this.el;
-
-        this.setupFadeAnimation();
-
-        el.addEventListener(data.on, function () {
-          data.target.emit('set-image-fade');
-          setTimeout(function () {
-            data.target.setAttribute('material', 'src', data.src);
-          }, data.dur);
-        });
-      },
-
-      setupFadeAnimation: function () {
-        var data = this.data;
-        var targetEl = this.data.target;
-
-        if (targetEl.dataset.setImageFadeSetup) { return; }
-        targetEl.dataset.setImageFadeSetup = true;
-
-        targetEl.setAttribute('animation__fade', {
-          property: 'material.color',
-          startEvents: 'set-image-fade',
-          dir: 'alternate',
-          dur: data.dur,
-          from: '#FFF',
-          to: '#000'
-        });
-      }
-    });
-  </script>
+    <!-- <script src="https://npmcdn.com/aframe-layout-component@3.0.1"></script>
+    <script src="https://npmcdn.com/aframe-template-component@3.1.1"></script> -->
+    <script>
+     function changeSky(location) {
+       var sky = document.getElementById("image-360")
+      sky.setAttribute('src', location)
+     }
+    </script>
   </head>
 
   <body>
@@ -52,26 +18,20 @@
         <img id="city-thumb" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-city.jpg">
         <img id="sechelt-thumb" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-sechelt.jpg">
         <img id="sechelt" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
-
-        <script id="link" type="text/html">
-          <a-entity class="link"
-            geometry="primitive: plane; height: 1; width: 1"
-            material="shader: flat; src: ${thumb}"
-            set-image="on: click; target: #image-360; src: ${src}"</a-entity>
-        </script>
       </a-assets>
 
       <a-sky id="image-360" radius="10" src="#city"></a-sky>
 
-      <a-entity id="links" layout="type: line; margin: 1.5" position="0 -1 -4">
-        <a-entity template="src: #link" data-src="#city" data-thumb="#city-thumb"></a-entity>
-        <a-entity template="src: #link" data-src="#sechelt" data-thumb="#sechelt-thumb"></a-entity>
-      </a-entity>
-
-      <a-entity camera look-controls>
+      <!-- <a-entity camera look-controls>
         <a-cursor id="cursor"
         </a-cursor>
-      </a-entity>
+      </a-entity> -->
+
     </a-scene>
   </body>
 </html>
+
+
+sky = document.getElementById("image-360")
+sky.setAttribute('src', '#sechelt')
+sky.setAttribute('src', '#city')
