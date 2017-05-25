@@ -37,5 +37,20 @@ A great end to a tough day, searching for our purpose...but we're one step close
 
 *Shipmate Odendaal*
 
+#### Day 3
+A new day, a new adventure. Like every morning we gathered on the conference room to speak about our strategies for the day. Our main focus is on Alexa, our new onboard Artificial Intelligence.
+
+Even if it’s extremely powerful it is still fairly new and we are trying to find its limits. That’s why we tried, by working in pairs, to build different simple skills. After having fun creating a question game about video games, we started doing research to know how to link Alexa to our VR website experience.
+
+One thing came out of that: we need to be able to update our website on the go. By the end of the day we moved to [Firebase](https://firebase.google.com/), a platform giving us the flexibility we were looking for. But we had to leave school to find refuge in an Alexa event.
+
+Even if the talk was not quite what we hope for, we got the chance to ask the questions we were seeking answers for. And if it was not good enough a second talk about A-Frame (the 3D JavaScript framework we are using) was hosted at the same time. Major Naz went to attend this one while the rest of the crew staid for the Alexa one.
+
+Finally, I took the space shuttle to return to the mother base, looking at the sun disappearing in the distance, warm and safe.
+
+![major_naz](images/major_naz.jpg)
+
+*Chief Engineer Jean-Jacques*
+
 ### Technology
 TBC
