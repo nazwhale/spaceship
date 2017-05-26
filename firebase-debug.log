@@ -3,24 +3,32 @@
 [debug] CLI Version:  3.9.0
 [debug] Platform:     darwin
 [debug] Node Version: v6.10.2
-[debug] Time:         Fri May 26 2017 10:56:08 GMT+0100 (BST)
+[debug] Time:         Fri May 26 2017 15:19:14 GMT+0100 (BST)
 [debug] ----------------------------------------------------------------------
 [debug] 
 [debug] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/TZFjZHYDWJOwjcxPT4rN5O2kP_0tQJkm1BCdlr8R8mg',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Fri May 26 2017 15:19:14 GMT+0100 (BST)
+[debug] <<< HTTP RESPONSE 200
 [debug] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/spaceship-test  
- Fri May 26 2017 10:56:08 GMT+0100 (BST)
+ Fri May 26 2017 15:19:14 GMT+0100 (BST)
 [debug] <<< HTTP RESPONSE 200
 [debug] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/spaceship-test/tokens  
- Fri May 26 2017 10:56:10 GMT+0100 (BST)
+ Fri May 26 2017 15:19:16 GMT+0100 (BST)
 [debug] <<< HTTP RESPONSE 200
 [info] 
 [info] === Serving from '/Users/nadeemmalik/GoogleDrive/Projects/spaceship'...
 [info] 
 [debug] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/spaceship-test  
- Fri May 26 2017 10:56:10 GMT+0100 (BST)
+ Fri May 26 2017 15:19:17 GMT+0100 (BST)
 [debug] <<< HTTP RESPONSE 200
 [debug] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/449052245084/clients/_:getWebAppConfig  
- Fri May 26 2017 10:56:11 GMT+0100 (BST)
+ Fri May 26 2017 15:19:17 GMT+0100 (BST)
 [debug] <<< HTTP RESPONSE 200
 [info] i  hosting: Serving hosting files from: public
 [info] ✔  hosting: Local server: http://localhost:5000
