@@ -49,8 +49,13 @@
 
         messaging.onMessage(function(payload){
           console.log('onMessage: ', payload)
-          // changeSky('#mars');
+          console.log('Changing sky...');
+          destination = payload.notification.title
+          console.log(payload.notification.title)
+          changeSky("#" + destination);
+          console.log('Sky changed!');
         })
+
         // firebase.auth().onAuthStateChanged(user => { });
         // firebase.database().ref('/path/to/ref').on('data', snapshot => { });
         // firebase.messaging().requestPermission().then(() => { });
