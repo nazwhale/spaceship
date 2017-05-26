@@ -50,7 +50,7 @@
         messaging.onMessage(function(payload){
           console.log('onMessage: ', payload)
           console.log('Changing sky...');
-          destination = payload.notification.title
+          var destination = payload.notification.title
           console.log(payload.notification.title)
           changeSky("#" + destination);
           console.log('Sky changed!');
