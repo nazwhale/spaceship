@@ -46,6 +46,11 @@
         .catch(function(err){
           console.log('Error occured');
         })
+
+        messaging.onMessage(function(payload){
+          console.log('onMessage: ', payload)
+          // changeSky('#mars');
+        })
         // firebase.auth().onAuthStateChanged(user => { });
         // firebase.database().ref('/path/to/ref').on('data', snapshot => { });
         // firebase.messaging().requestPermission().then(() => { });
