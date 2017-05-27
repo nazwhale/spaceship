@@ -49,7 +49,7 @@ function onIntent(intentRequest, session, callback) {
 
 function handleIntent(planet, session, callback) {
   callFirebase(planet, function(speechOutput) {
-    callback(session.attributes, buildSpeechletResponseWithoutCard(speechOutput, "", false));
+    callback(session.attributes, buildSpeechletResponseWithoutCard(speechOutput, "", true));
   });
 }
 

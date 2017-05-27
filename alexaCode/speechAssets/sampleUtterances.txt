@@ -1,0 +1,3 @@
+MarsIntent take me to mars
+EarthIntent take me home
+EarthIntent take me to earth
