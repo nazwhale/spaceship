@@ -52,5 +52,17 @@ Finally, I took the space shuttle to return to the mother base, looking at the s
 
 *Chief Engineer Jean-Jacques*
 
+Day 4
+
+Ensign Gleeson’s log, stardate 25.4.2017.  
+
+On the fourth day of our voyage we found ourselves exploring unmapped frontiers in the form of Alexa and Firebase.  It was all a bit scary to say the least.  
+
+We already had the code to render our immersive interplanetary experience.  The next step was to teach Alexa to take the user to wherever said user asked.  Our intrepid coding team had attended talks, fired off emails, and interrogated every available expert, and concuded that Firebase might be the solution to the problem, functioning as an intermediary between AWS Lambda (the platform running our Alexa code) and the user’s device browser.
+
+Today we split into two teams, tackling the problem from both ends (AWS Lambda and Firebase) and valiantly hoping that we would meet in the middle.  And so far it’s all going relatively well.
+
+The mission continues…
+
 ### Technology
 TBC
