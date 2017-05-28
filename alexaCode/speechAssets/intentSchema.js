@@ -5,9 +5,6 @@
     },
     {
     "intent" : "EarthIntent"
-    },
-    {
-    "intent" : "GoodbyeIntent"
     }
   ]
 }

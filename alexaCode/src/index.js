@@ -1,21 +1,17 @@
 var request = require("request");
 
 exports.handler = function (event, context) {
-  try {
-        if (event.session.new) {
-            onSessionStarted({requestId: event.request.requestId}, event.session);
-        }
-        if (event.request.type === "LaunchRequest") {
+  try { if (event.request.type === "LaunchRequest") {
             onLaunch(event.request,
                 event.session,
                 function callback(sessionAttributes, speechletResponse) {
-                    context.succeed(buildResponse(sessionAttributes, speechletResponse));
+                        context.succeed(buildResponse(sessionAttributes, speechletResponse));
                 });
         } else if (event.request.type === "IntentRequest") {
             onIntent(event.request,
                 event.session,
                 function callback(sessionAttributes, speechletResponse) {
-                    context.succeed(buildResponse(sessionAttributes, speechletResponse));
+                        context.succeed(buildResponse(sessionAttributes, speechletResponse));
                 });
         } else if (event.request.type === "SessionEndedRequest") {
             onSessionEnded(event.request, event.session);
@@ -26,16 +22,12 @@ exports.handler = function (event, context) {
   }
 };
 
-function onSessionStarted(sessionStartedRequest, session) {
-}
-
 function onLaunch(launchRequest, session, callback) {
-  getWelcomeResponse(callback);
+    getWelcomeResponse(callback);
 }
 
 function onIntent(intentRequest, session, callback) {
 
-    var intent = intentRequest.intent;
     var intentName = intentRequest.intent.name;
 
     if (intentName == 'EarthIntent') {
@@ -49,7 +41,7 @@ function onIntent(intentRequest, session, callback) {
 
 function handleIntent(planet, session, callback) {
   callFirebase(planet, function(speechOutput) {
-    callback(session.attributes, buildSpeechletResponseWithoutCard(speechOutput, "", true));
+    callback(session.attributes, buildSpeechletResponse(speechOutput, "", true));
   });
 }
 
@@ -80,48 +72,23 @@ function serverKey() {
 }
 
 function clientToken() {
-  return "cGL93s8UFlk:APA91bEefgP-CfWzE7UO1wv-ZyNywsUjHgQbkUVLybwPEk2g7cjgblYUqWadUhK8E6Sfcn2bA0wReaz48_j9bRH4vBouVmZjj6sCZHk3fbhbRSEgPlYqR1Mf2srOHZ8g1hNhC8c7dX_T";
+  return "eP4HIdOSyLQ:APA91bFPAMvd9GFXoL9kqNq2nUrainZpbfkBY05h9Tw_Oc8im4x69byRWn0uAxMY8TyHImjEbAJJRBt0TO3Mh8cNpRHprTgVWpk53KQ61zUd9dJixKBNslOGBS2MnfmMIRk8xr48ZoQ9";
 }
 
 function getWelcomeResponse(callback) {
-  var speechOutput = "welcome aboard";
-  var reprompt = "where to captain?";
-  var header = "spaceship";
-  var shouldEndSession = false;
   var sessionAttributes = {
-    "speechOutput" : speechOutput,
-    "repromptText" : reprompt
+    "speechOutput" : "welcome aboard",
+    "repromptText" : "where to captain?"
   };
-
-  callback(sessionAttributes, buildSpeechletResponse(header, speechOutput, reprompt, shouldEndSession));
-
+  callback(sessionAttributes, buildSpeechletResponse("welcome aboard", "where to captain?", false));
 }
 
 
 // ------- Helper functions to build responses -------
 
-function buildSpeechletResponse(title, output, repromptText, shouldEndSession) {
-    return {
-        outputSpeech: {
-            type: "PlainText",
-            text: output
-        },
-        card: {
-            type: "Simple",
-            title: title,
-            content: output
-        },
-        reprompt: {
-            outputSpeech: {
-                type: "PlainText",
-                text: repromptText
-            }
-        },
-        shouldEndSession: shouldEndSession
-    };
-}
 
-function buildSpeechletResponseWithoutCard(output, repromptText, shouldEndSession) {
+
+function buildSpeechletResponse(output, repromptText, shouldEndSession) {
     return {
         outputSpeech: {
             type: "PlainText",
