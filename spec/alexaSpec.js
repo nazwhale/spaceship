@@ -1,3 +1,20 @@
+describe('#eventHandler', function() {
+
+  it('recognises an IntentRequest', function() {
+    spyOn(self, 'onIntent');
+    eventHandler(marsIntentEvent(), alexaContext());
+    expect(self.onIntent).toHaveBeenCalled();
+  });
+
+  it('recognises a LaunchRequest', function() {
+    spyOn(self, 'welcomeOnBoard');
+    eventHandler(launchIntentEvent(), alexaContext());
+    expect(self.welcomeOnBoard).toHaveBeenCalled();
+  });
+
+});
+
+
 describe('#welcomeOnBoard', function() {
 
   it('builds a speechlet response with a welcome message', function() {
