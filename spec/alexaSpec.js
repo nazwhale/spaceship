@@ -38,7 +38,7 @@ describe('#onIntent', function() {
     expect(self.callFirebase).toHaveBeenCalledWith('earth', 'callback');
   });
 
-  it('throws a error if handed an invalid intent', function() {
+  it('throws an error if handed an invalid intent', function() {
     expect(function() { onIntent(invalidIntentEvent().request, 'callback'); }).toThrow('Invalid intent');
   });
 
