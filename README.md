@@ -52,9 +52,9 @@ Finally, I took the space shuttle to return to the mother base, looking at the s
 
 *Chief Engineer Jean-Jacques*
 
-Day 4
+####Day 4
 
-Ensign Gleeson’s log, stardate 25.4.2017.  
+*Ensign Gleeson’s log, stardate 25.4.2017*  
 
 On the fourth day of our voyage we found ourselves exploring unmapped frontiers in the form of Alexa and Firebase.  It was all a bit scary to say the least.  
 
