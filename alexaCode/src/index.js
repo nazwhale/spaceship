@@ -2,21 +2,22 @@ var request = require("request");
 
 exports.handler = function (event, context) {
   try { if (event.request.type === "LaunchRequest") {
-          getWelcomeResponse(function callback(sessionAttributes, speechletResponse) {
-            context.succeed(buildResponse(sessionAttributes, speechletResponse));
-          });
+            getWelcomeResponse(function callback(sessionAttributes, speechletResponse) {
+              context.succeed(buildResponse(sessionAttributes, speechletResponse));
+            });
         } else if (event.request.type === "IntentRequest") {
-          onIntent(event.request, function callback(speechletResponse) {
-            context.succeed(buildResponse(event.session.attributes, speechletResponse));
-          });
+            onIntent(event.request,
+                function callback(speechletResponse) {
+                        context.succeed(buildResponse(event.session.attributes, speechletResponse));
+                });
         } else if (event.request.type === "SessionEndedRequest") {
-          onSessionEnded(event.request, event.session);
-          context.succeed();
+            context.succeed();
         }
   } catch (e) {
     context.fail("Exception: " + e);
   }
 };
+
 
 function onIntent(intentRequest, callback) {
 
