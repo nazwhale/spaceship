@@ -1,26 +1,3 @@
-
-
-
-describe('#callFirebase', function() {
-
-
-});
-
-describe('#onIntent', function() {
-
-  it('recognises a MarsIntent', function() {
-    spyOn(self, 'handleIntent');
-    onIntent(marsIntentEvent().request, 'callback');
-    expect(self.handleIntent).toHaveBeenCalledWith('mars', 'callback');
-  });
-  it('recognises an EarthIntent', function() {
-    spyOn(self, 'handleIntent');
-    onIntent(earthIntentEvent().request, 'callback');
-    expect(self.handleIntent).toHaveBeenCalledWith('earth', 'callback');
-  });
-
-});
-
 describe('#welcomeOnBoard', function() {
 
   it('builds a speechlet response with a welcome message', function() {
@@ -28,7 +5,32 @@ describe('#welcomeOnBoard', function() {
     welcomeOnBoard(callback);
     expect(callback).toHaveBeenCalledWith(buildSpeechletResponse("welcome aboard", "where to captain?", false));
   });
+
 });
+
+describe('#onIntent', function() {
+
+  it('recognises a MarsIntent', function() {
+    spyOn(self, 'callFirebase');
+    onIntent(marsIntentEvent().request, 'callback');
+    expect(self.callFirebase).toHaveBeenCalledWith('mars', 'callback');
+  });
+
+  it('recognises an EarthIntent', function() {
+    spyOn(self, 'callFirebase');
+    onIntent(earthIntentEvent().request, 'callback');
+    expect(self.callFirebase).toHaveBeenCalledWith('earth', 'callback');
+  });
+
+});
+
+
+describe('#callFirebase', function() {
+
+
+});
+
+
 
 describe('#buildSpeechletResponse', function() {
 
@@ -47,6 +49,7 @@ describe('#buildSpeechletResponse', function() {
         shouldEndSession: true
     });
   });
+
 });
 
 describe('#buildResponse', function() {
@@ -58,4 +61,5 @@ describe('#buildResponse', function() {
         response: 'this is mars'
     });
   });
+
 });

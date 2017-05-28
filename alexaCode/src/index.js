@@ -22,18 +22,12 @@ function welcomeOnBoard(callback) {
 function onIntent(intentRequest, callback) {
     var intentName = intentRequest.intent.name;
     if (intentName == 'EarthIntent') {
-      handleIntent('earth', callback);
+      callFirebase('earth', callback);
     } else if (intentName == 'MarsIntent') {
-      handleIntent('mars', callback);
+      callFirebase('mars', callback);
     } else {
       throw "Invalid intent";
     }
-}
-
-function handleIntent(planet, callback) {
-  callFirebase(planet, function(speechOutput) {
-    callback(buildSpeechletResponse(speechOutput, "", true));
-  });
 }
 
 function callFirebase(planet, callback) {
@@ -47,9 +41,9 @@ function callFirebase(planet, callback) {
   };
   request.post(options, function(error, response, body) {
     if(body.success == 1) {
-      callback('this is ' + planet);
+      callback(buildSpeechletResponse("this is " + planet, "", true));
     } else {
-      callback('lost in space above all drifting');
+      callback(buildSpeechletResponse("lost in space above all drifting", "", true));
     }
   });
 }
