@@ -52,7 +52,7 @@ Finally, I took the space shuttle to return to the mother base, looking at the s
 
 *Chief Engineer Jean-Jacques*
 
-####Day 4
+#### Day 4
 
 *Ensign Gleeson’s log, stardate 25.4.2017*  
 
