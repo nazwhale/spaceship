@@ -24,13 +24,9 @@ describe('#onIntent', function() {
 
 });
 
-
 describe('#callFirebase', function() {
 
-
 });
-
-
 
 describe('#buildSpeechletResponse', function() {
 

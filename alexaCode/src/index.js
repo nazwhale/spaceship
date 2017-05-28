@@ -1,6 +1,8 @@
 var request = require("request");
 
-exports.handler = function (event, context) {
+exports.handler = function(event, context) { eventHandler(event, context); };
+
+function eventHandler(event, context) {
   try { if (event.request.type === "LaunchRequest") {
           welcomeOnBoard(function callback(speechletResponse) {
             context.succeed(buildResponse(event.session.attributes, speechletResponse));
@@ -13,7 +15,7 @@ exports.handler = function (event, context) {
   } catch (e) {
     context.fail("Exception: " + e);
   }
-};
+}
 
 function welcomeOnBoard(callback) {
   callback(buildSpeechletResponse("welcome aboard", "where to captain?", false));
