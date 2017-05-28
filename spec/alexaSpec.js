@@ -14,7 +14,6 @@ describe('#eventHandler', function() {
 
 });
 
-
 describe('#welcomeOnBoard', function() {
 
   it('builds a speechlet response with a welcome message', function() {
@@ -37,6 +36,10 @@ describe('#onIntent', function() {
     spyOn(self, 'callFirebase');
     onIntent(earthIntentEvent().request, 'callback');
     expect(self.callFirebase).toHaveBeenCalledWith('earth', 'callback');
+  });
+
+  it('throws a error if handed an invalid intent', function() {
+    expect(function() { onIntent(invalidIntentEvent().request, 'callback'); }).toThrow('Invalid intent');
   });
 
 });
