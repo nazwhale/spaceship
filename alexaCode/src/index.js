@@ -2,27 +2,25 @@ var request = require("request");
 
 exports.handler = function (event, context) {
   try { if (event.request.type === "LaunchRequest") {
-            getWelcomeResponse(function callback(sessionAttributes, speechletResponse) {
-              context.succeed(buildResponse(sessionAttributes, speechletResponse));
-            });
+          getWelcomeResponse(function callback(speechletResponse) {
+            context.succeed(buildResponse(event.session.attributes, speechletResponse));
+          });
         } else if (event.request.type === "IntentRequest") {
-            onIntent(event.request,
-                function callback(speechletResponse) {
-                        context.succeed(buildResponse(event.session.attributes, speechletResponse));
-                });
-        } else if (event.request.type === "SessionEndedRequest") {
-            context.succeed();
+            onIntent(event.request, function callback(speechletResponse) {
+              context.succeed(buildResponse(event.session.attributes, speechletResponse));
+            });
         }
   } catch (e) {
     context.fail("Exception: " + e);
   }
 };
 
+function getWelcomeResponse(callback) {
+  callback(buildSpeechletResponse("welcome aboard", "where to captain?", false));
+}
 
 function onIntent(intentRequest, callback) {
-
     var intentName = intentRequest.intent.name;
-
     if (intentName == 'EarthIntent') {
       handleIntent('earth', callback);
     } else if (intentName == 'MarsIntent') {
@@ -68,13 +66,6 @@ function clientToken() {
   return "eP4HIdOSyLQ:APA91bFPAMvd9GFXoL9kqNq2nUrainZpbfkBY05h9Tw_Oc8im4x69byRWn0uAxMY8TyHImjEbAJJRBt0TO3Mh8cNpRHprTgVWpk53KQ61zUd9dJixKBNslOGBS2MnfmMIRk8xr48ZoQ9";
 }
 
-function getWelcomeResponse(callback) {
-  var sessionAttributes = {
-    "speechOutput" : "welcome aboard",
-    "repromptText" : "where to captain?"
-  };
-  callback(sessionAttributes, buildSpeechletResponse("welcome aboard", "where to captain?", false));
-}
 
 function buildSpeechletResponse(output, repromptText, shouldEndSession) {
     return {
