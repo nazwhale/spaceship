@@ -2,46 +2,38 @@ var request = require("request");
 
 exports.handler = function (event, context) {
   try { if (event.request.type === "LaunchRequest") {
-            onLaunch(event.request,
-                event.session,
-                function callback(sessionAttributes, speechletResponse) {
-                        context.succeed(buildResponse(sessionAttributes, speechletResponse));
-                });
+          getWelcomeResponse(function callback(sessionAttributes, speechletResponse) {
+            context.succeed(buildResponse(sessionAttributes, speechletResponse));
+          });
         } else if (event.request.type === "IntentRequest") {
-            onIntent(event.request,
-                event.session,
-                function callback(sessionAttributes, speechletResponse) {
-                        context.succeed(buildResponse(sessionAttributes, speechletResponse));
-                });
+          onIntent(event.request, function callback(speechletResponse) {
+            context.succeed(buildResponse(event.session.attributes, speechletResponse));
+          });
         } else if (event.request.type === "SessionEndedRequest") {
-            onSessionEnded(event.request, event.session);
-            context.succeed();
+          onSessionEnded(event.request, event.session);
+          context.succeed();
         }
   } catch (e) {
     context.fail("Exception: " + e);
   }
 };
 
-function onLaunch(launchRequest, session, callback) {
-    getWelcomeResponse(callback);
-}
-
-function onIntent(intentRequest, session, callback) {
+function onIntent(intentRequest, callback) {
 
     var intentName = intentRequest.intent.name;
 
     if (intentName == 'EarthIntent') {
-      handleIntent('earth', session, callback);
+      handleIntent('earth', callback);
     } else if (intentName == 'MarsIntent') {
-      handleIntent('mars', session, callback);
+      handleIntent('mars', callback);
     } else {
       throw "Invalid intent";
     }
 }
 
-function handleIntent(planet, session, callback) {
+function handleIntent(planet, callback) {
   callFirebase(planet, function(speechOutput) {
-    callback(session.attributes, buildSpeechletResponse(speechOutput, "", true));
+    callback(buildSpeechletResponse(speechOutput, "", true));
   });
 }
 
@@ -82,11 +74,6 @@ function getWelcomeResponse(callback) {
   };
   callback(sessionAttributes, buildSpeechletResponse("welcome aboard", "where to captain?", false));
 }
-
-
-// ------- Helper functions to build responses -------
-
-
 
 function buildSpeechletResponse(output, repromptText, shouldEndSession) {
     return {
