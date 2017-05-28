@@ -42,7 +42,11 @@ describe('#onIntent', function() {
 });
 
 describe('#callFirebase', function() {
-
+  it('makes an API call to firebase', function() {
+    request = jasmine.createSpyObj('request',['post']);
+    callFirebase('mars', 'callback');
+    expect(request.post).toHaveBeenCalled();
+  });
 });
 
 describe('#buildSpeechletResponse', function() {
