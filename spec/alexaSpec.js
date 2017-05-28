@@ -1,3 +1,14 @@
+describe('#welcomeOnBoard', function() {
+
+  it('builds a speechlet response with a welcome message', function() {
+    var callback = jasmine.createSpy('callback');
+    welcomeOnBoard(callback);
+    expect(callback).toHaveBeenCalledWith(buildSpeechletResponse("welcome aboard", "where to captain?", false));
+  });
+});
+
+
+
 describe('#callFirebase', function() {
 
 

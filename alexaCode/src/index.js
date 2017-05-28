@@ -2,7 +2,7 @@ var request = require("request");
 
 exports.handler = function (event, context) {
   try { if (event.request.type === "LaunchRequest") {
-          getWelcomeResponse(function callback(speechletResponse) {
+          welcomeOnBoard(function callback(speechletResponse) {
             context.succeed(buildResponse(event.session.attributes, speechletResponse));
           });
         } else if (event.request.type === "IntentRequest") {
@@ -15,7 +15,7 @@ exports.handler = function (event, context) {
   }
 };
 
-function getWelcomeResponse(callback) {
+function welcomeOnBoard(callback) {
   callback(buildSpeechletResponse("welcome aboard", "where to captain?", false));
 }
 
