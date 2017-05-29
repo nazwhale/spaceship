@@ -1,10 +1,28 @@
 {
-  "intents" : [
+  "intents": [
     {
-    "intent" : "MarsIntent"
+      "intent": "MarsIntent"
     },
     {
-    "intent" : "EarthIntent"
+      "intent": "EarthIntent"
+    },
+    {
+      "intent": "FalconIntent"
+    },
+    {
+      "intent": "StratosphereIntent"
+    },
+    {
+      "intent": "SpaceIntent"
+    },
+    {
+      "intent": "OrbitIntent"
+    },
+    {
+      "intent": "SunIntent"
+    },
+    {
+      "intent": "GirlfriendIntent"
     }
   ]
 }

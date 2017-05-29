@@ -3,3 +3,10 @@ MarsIntent to take me to mars
 EarthIntent take me home
 EarthIntent take me to earth
 EarthIntent to take me to earth
+FalconIntent take me to the falcon
+FalconIntent take me to the millenium falcon
+StratosphereIntent take me to the stratosphere
+OrbitIntent take me into orbit
+SpaceIntent take me to space
+GirlfriendIntent i want to lie in the grass with my girlfriend
+SunIntent take me to the sun
