@@ -17,6 +17,7 @@ function eventHandler(event, context) {
   }
 }
 
+
 function welcomeOnBoard(callback) {
   callback(buildSpeechResponse("welcome aboard", "where to captain?", false));
 }
@@ -27,6 +28,18 @@ function sortIntents(intentRequest, callback) {
       callFirebase('earth', callback);
     } else if (intentName == 'MarsIntent') {
       callFirebase('mars', callback);
+    } else if (intentName == 'GirlfriendIntent') {
+      callFirebase('girlfriend', callback);
+    } else if (intentName == 'SpaceIntent') {
+      callFirebase('space', callback);
+    } else if (intentName == 'OrbitIntent') {
+      callFirebase('orbit', callback);
+    } else if (intentName == 'StratosphereIntent') {
+      callFirebase('stratosphere', callback);
+    } else if (intentName == 'SunIntent') {
+      callFirebase('sun', callback);
+    } else if (intentName == 'FalconIntent') {
+      callFirebase('falcon', callback);
     } else {
       throw "Invalid intent";
     }
@@ -36,7 +49,7 @@ function sortIntents(intentRequest, callback) {
 function callFirebase(planet, callback) {
   var url = 'https://fcm.googleapis.com/fcm/send';
   var serverKey = "key=AAAAaI2ZfFw:APA91bGqDh70rNfC8Gtwdxhut5sKhG7td0okEetwnhjWtzvTSC4jJIOReD2nEXkpT4OqMIciJptTxk7Du8MJmvrcW7jTKhiAh7XJYq2kBG2wIQOiwUerx014rpk7nt1JknAS-jdpUJxB";
-  var clientToken = "c5XSLkXGQ7Q:APA91bH3vNz7I8kUgykq7P8CDEGb-udfb7mY3nXNuEk6b4ifIK3e_7aT2nkuJx7Tdso4V41kGkuz6ziCfOGb0du7YiXioEHkxm54uy5uy2-9Fk4qyYwownBaOaVnAR_PdUobme3rpaGJ";
+  var clientToken = "dmcS0ffLcCM:APA91bHWZ958Na0pG7cdLqHDPJJtlenkxUPvNSI0nhGgdv_209JcNUzbAAbPAGecUn8sufTbksXowWOUa7Xm--jSdAr2M2r0e1TUKTtp0QApCaevYJyzbHSv-eepkUMTGA_RqCSxwLxv";
   var options = {
     url: url,
     headers: {
@@ -53,6 +66,7 @@ function callFirebase(planet, callback) {
     }
   });
 }
+
 
 function buildSpeechResponse(output, repromptText, shouldEndSession) {
     return {
