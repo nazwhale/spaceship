@@ -3,24 +3,24 @@
 [debug] CLI Version:  3.9.0
 [debug] Platform:     darwin
 [debug] Node Version: v6.10.2
-[debug] Time:         Mon May 29 2017 10:45:00 GMT+0100 (BST)
+[debug] Time:         Mon May 29 2017 12:31:08 GMT+0100 (BST)
 [debug] ----------------------------------------------------------------------
 [debug] 
 [debug] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
 [debug] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/spaceship-test  
- Mon May 29 2017 10:45:00 GMT+0100 (BST)
+ Mon May 29 2017 12:31:08 GMT+0100 (BST)
 [debug] <<< HTTP RESPONSE 200
 [debug] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/spaceship-test/tokens  
- Mon May 29 2017 10:45:01 GMT+0100 (BST)
+ Mon May 29 2017 12:31:09 GMT+0100 (BST)
 [debug] <<< HTTP RESPONSE 200
 [info] 
 [info] === Serving from '/Users/gekographe/Dropbox/Projects/spaceship'...
 [info] 
 [debug] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/spaceship-test  
- Mon May 29 2017 10:45:01 GMT+0100 (BST)
+ Mon May 29 2017 12:31:10 GMT+0100 (BST)
 [debug] <<< HTTP RESPONSE 200
 [debug] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/449052245084/clients/_:getWebAppConfig  
- Mon May 29 2017 10:45:02 GMT+0100 (BST)
+ Mon May 29 2017 12:31:11 GMT+0100 (BST)
 [debug] <<< HTTP RESPONSE 200
 [info] i  hosting: Serving hosting files from: public
 [info] ✔  hosting: Local server: http://localhost:5000
