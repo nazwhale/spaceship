@@ -1,4 +1,4 @@
-#  ![MASA](images/Masa_small.jpg) Virtual Reality Spaceship
+#  ![MASA](public/images/Masa_small.jpg) Virtual Reality Spaceship
 ###### A project by the Makers Academy Space Administration
 ***
 
@@ -31,7 +31,7 @@ Building on our day 1 success we were all energized to dive a little deeper into
 
 By the end of the day we'd built a VR environment compatible with Google Cardboard that we can traverse!
 
- ![Mars_landing](images/vr_mars.png)
+ ![Mars_landing](public/images/vr_mars.png)
 
 A great end to a tough day, searching for our purpose...but we're one step closer.
 
@@ -48,7 +48,7 @@ Even if the talk was not quite what we hope for, we got the chance to ask the qu
 
 Finally, I took the space shuttle to return to the mother base, looking at the sun disappearing in the distance, warm and safe.
 
-![major_naz](images/major_naz.jpg)
+![major_naz](public/images/major_naz.jpg)
 
 *Chief Engineer Jean-Jacques*
 
