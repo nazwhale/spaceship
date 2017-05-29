@@ -1,9 +1,15 @@
 describe('#eventHandler', function() {
 
-  it('recognises an IntentRequest', function() {
+  it('recognises an IntentRequest...', function() {
     spyOn(self, 'sortIntents');
     eventHandler(marsIntentEvent(), alexaContext());
     expect(self.sortIntents).toHaveBeenCalled();
+  });
+
+  it('...and sets off a chain of events resulting in a call to Firebase', function() {
+    spyOn(self, 'callFirebase');
+    eventHandler(marsIntentEvent(), alexaContext());
+    expect(self.callFirebase).toHaveBeenCalled();
   });
 
   it('recognises a LaunchRequest', function() {
