@@ -1,9 +1,9 @@
 describe('#eventHandler', function() {
 
   it('recognises an IntentRequest', function() {
-    spyOn(self, 'onIntent');
+    spyOn(self, 'sortIntents');
     eventHandler(marsIntentEvent(), alexaContext());
-    expect(self.onIntent).toHaveBeenCalled();
+    expect(self.sortIntents).toHaveBeenCalled();
   });
 
   it('recognises a LaunchRequest', function() {
@@ -19,27 +19,27 @@ describe('#welcomeOnBoard', function() {
   it('builds a speechlet response with a welcome message', function() {
     var callback = jasmine.createSpy('callback');
     welcomeOnBoard(callback);
-    expect(callback).toHaveBeenCalledWith(buildSpeechletResponse("welcome aboard", "where to captain?", false));
+    expect(callback).toHaveBeenCalledWith(buildSpeechResponse("welcome aboard", "where to captain?", false));
   });
 
 });
 
-describe('#onIntent', function() {
+describe('#sortIntents', function() {
 
   it('recognises a MarsIntent', function() {
     spyOn(self, 'callFirebase');
-    onIntent(marsIntentEvent().request, 'callback');
+    sortIntents(marsIntentEvent().request, 'callback');
     expect(self.callFirebase).toHaveBeenCalledWith('mars', 'callback');
   });
 
   it('recognises an EarthIntent', function() {
     spyOn(self, 'callFirebase');
-    onIntent(earthIntentEvent().request, 'callback');
+    sortIntents(earthIntentEvent().request, 'callback');
     expect(self.callFirebase).toHaveBeenCalledWith('earth', 'callback');
   });
 
   it('throws an error if handed an invalid intent', function() {
-    expect(function() { onIntent(invalidIntentEvent().request, 'callback'); }).toThrow('Invalid intent');
+    expect(function() { sortIntents(invalidIntentEvent().request, 'callback'); }).toThrow('Invalid intent');
   });
 
 });
@@ -52,10 +52,10 @@ describe('#callFirebase', function() {
   });
 });
 
-describe('#buildSpeechletResponse', function() {
+describe('#buildSpeechResponse', function() {
 
   it('returns a hash with speech output', function() {
-    expect(buildSpeechletResponse('this is earth', '', true)).toEqual({
+    expect(buildSpeechResponse('this is earth', '', true)).toEqual({
         outputSpeech: {
             type: "PlainText",
             text: 'this is earth'

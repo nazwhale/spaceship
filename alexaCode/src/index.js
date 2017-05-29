@@ -4,12 +4,12 @@ exports.handler = function(event, context) { eventHandler(event, context); };
 
 function eventHandler(event, context) {
   try { if (event.request.type === "LaunchRequest") {
-          welcomeOnBoard(function callback(speechletResponse) {
-            context.succeed(buildResponse(event.session.attributes, speechletResponse));
+          welcomeOnBoard(function callback(speechResponse) {
+            context.succeed(buildResponse(event.session.attributes, speechResponse));
           });
         } else if (event.request.type === "IntentRequest") {
-            onIntent(event.request, function callback(speechletResponse) {
-              context.succeed(buildResponse(event.session.attributes, speechletResponse));
+            sortIntents(event.request, function callback(speechResponse) {
+              context.succeed(buildResponse(event.session.attributes, speechResponse));
             });
         }
   } catch (e) {
@@ -17,11 +17,12 @@ function eventHandler(event, context) {
   }
 }
 
+
 function welcomeOnBoard(callback) {
-  callback(buildSpeechletResponse("welcome aboard", "where to captain?", false));
+  callback(buildSpeechResponse("welcome aboard", "where to captain?", false));
 }
 
-function onIntent(intentRequest, callback) {
+function sortIntents(intentRequest, callback) {
     var intentName = intentRequest.intent.name;
     if (intentName == 'EarthIntent') {
       callFirebase('earth', callback);
@@ -43,9 +44,9 @@ function callFirebase(planet, callback) {
   };
   request.post(options, function(error, response, body) {
     if(body.success == 1) {
-      callback(buildSpeechletResponse("this is " + planet, "", true));
+      callback(buildSpeechResponse("this is " + planet, "", true));
     } else {
-      callback(buildSpeechletResponse("lost in space above all drifting", "", true));
+      callback(buildSpeechResponse("lost in space above all drifting", "", true));
     }
   });
 }
@@ -63,7 +64,7 @@ function clientToken() {
 }
 
 
-function buildSpeechletResponse(output, repromptText, shouldEndSession) {
+function buildSpeechResponse(output, repromptText, shouldEndSession) {
     return {
         outputSpeech: {
             type: "PlainText",
