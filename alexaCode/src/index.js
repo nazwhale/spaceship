@@ -80,10 +80,10 @@ function buildSpeechResponse(output, repromptText, shouldEndSession) {
     };
 }
 
-function buildResponse(sessionAttributes, speechletResponse) {
+function buildResponse(sessionAttributes, speechResponse) {
     return {
         version: "1.0",
         sessionAttributes: sessionAttributes,
-        response: speechletResponse
+        response: speechResponse
     };
 }
