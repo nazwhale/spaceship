@@ -19,10 +19,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
   messaging.onMessage(function(payload){
     console.log('Changing sky...');
-    var destination = payload.notification.title
+    var intent = payload.notification.title
     console.log(payload.notification.title)
-    changeSky("#" + destination);
+    if (intent == "monolith") {
+      addMonolith();
+    } else {
+      changeSky("#" + intent);
+    }
     console.log('Sky changed!');
+
   })
 
   // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
