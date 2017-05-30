@@ -23,6 +23,7 @@ describe('#eventHandler', function() {
     expect(self.intentName).not.toEqual('RandomIntent');
   });
 
+
 });
 
 
@@ -37,6 +38,13 @@ describe('#welcomeOnBoard', function() {
 });
 
 describe('#sortIntents', function() {
+
+  it('recongnises a HelpRequest', function() {
+    var callback = jasmine.createSpy("callback");
+    sortIntents(helpIntentEvent().request, callback)
+    expect(callback).toHaveBeenCalledWith(buildSpeechResponse("You can go to Mars, Earth or even to the depths of the universe", "Where would you like to go?", true))
+  });
+
 
   it('recognises a MarsIntent', function() {
     spyOn(self, 'callFirebase');

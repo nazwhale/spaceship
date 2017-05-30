@@ -51,10 +51,16 @@ function sortIntents(intentRequest, callback) {
       callFirebase('sun', callback);
     } else if (intentName == 'FalconIntent') {
       callFirebase('falcon', callback);
+    } else if (intentName == 'AMAZON.HelpIntent') {
+      helpUser(callback);
     } else {
       throw "Invalid intent";
     }
 }
+
+function helpUser(callback) {
+  callback(buildSpeechResponse("You can go to Mars, Earth or even to the depths of the universe", "Where would you like to go?", true))
+};
 
 function callFirebase(planet, callback) {
   var url = 'https://fcm.googleapis.com/fcm/send';

@@ -6,7 +6,13 @@ EarthIntent to take me to earth
 FalconIntent take me to the falcon
 FalconIntent take me to the millenium falcon
 StratosphereIntent take me to the stratosphere
-OrbitIntent take me into orbit
 SpaceIntent take me to space
-GirlfriendIntent i want to lie in the grass with my girlfriend
+OrbitIntent take me into orbit
 SunIntent take me to the sun
+GirlfriendIntent i want to lie in the grass with my girlfriend
+RandomIntent take me to a random location
+RandomIntent random
+RandomIntent surprise me
+RandomIntent I'm feeling lucky
+AMAZON.HelpIntent where can I go
+AMAZON.HelpIntent what are my options
