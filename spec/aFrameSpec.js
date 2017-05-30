@@ -15,3 +15,15 @@ describe('#addMonolith', function() {
     expect(dummyElement.innerHTML).toContain('id="#monolith"');
   });
 });
+
+describe('#removeMonolith', function() {
+  it('removes a monolith to the view', function() {
+    // DON'T KNOW HOW TO BLOODY PASS THIS TEST
+    dummyElement = document.createElement('div');
+    dummyChild = document.createElement('div');
+    dummyElement.appendChild(dummyChild)
+    spyOn(document, 'getElementById').and.returnValue(dummyChild);
+    removeMonolith();
+    expect(dummyChild).toBeUndefined();
+  });
+});

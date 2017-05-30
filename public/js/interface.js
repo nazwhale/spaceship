@@ -1,5 +1,5 @@
 (function(exports) {
-  
+
   function changeSky(location) {
     var sky = document.getElementById("image-360");
     sky.setAttribute('src', location);
@@ -17,6 +17,12 @@
     box.setAttribute('scale', '0.4 0.4 0.4');
   }
 
+  function removeMonolith() {
+    var element = document.getElementById('#monolith')
+    element.parentNode.removeChild(element);
+  }
+
   exports.addMonolith = addMonolith;
+  exports.removeMonolith = removeMonolith;
   exports.changeSky = changeSky;
 })(this);
