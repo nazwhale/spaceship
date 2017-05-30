@@ -18,7 +18,13 @@ describe('#eventHandler', function() {
     expect(self.welcomeOnBoard).toHaveBeenCalled();
   });
 
+  it('recognises a RandomRequest', function() {
+    eventHandler(randomIntentEvent(), alexaContext());
+    expect(self.intentName).not.toEqual('RandomIntent');
+  });
+
 });
+
 
 describe('#welcomeOnBoard', function() {
 
