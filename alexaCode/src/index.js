@@ -7,16 +7,6 @@ var intents = ['EarthIntent',
                'StratosphereIntent',
                'SunIntent',
                'FalconIntent'];
-var intentsMapping = {
-                      "EarthIntent": "earth",
-                      "MarsIntent": "mars",
-                      "GirlfriendIntent": "girlfriend",
-                      "SpaceIntent": "space",
-                      "OrbitIntent": "orbit",
-                      "StratosphereIntent": "stratosphere",
-                      "SunIntent": "sun",
-                      "FalconIntent": "falcon"
-                    };
 
 exports.handler = function(event, context) { eventHandler(event, context); };
 
@@ -42,36 +32,26 @@ function welcomeOnBoard(callback) {
 
 function sortIntents(intentRequest, callback) {
   var intentName = intentRequest.intent.name;
+  var intentsMapping = {"EarthIntent": "earth",
+                       "MarsIntent": "mars",
+                       "GirlfriendIntent": "girlfriend",
+                       "SpaceIntent": "space",
+                       "OrbitIntent": "orbit",
+                       "StratosphereIntent": "stratosphere",
+                       "SunIntent": "sun",
+                       "FalconIntent": "falcon"
+                      };
 
-  if (intentName === 'AMAZON.HelpIntent') {
+  if (intentName == 'AMAZON.HelpIntent') {
     helpUser(callback);
-  } else if (intentName === 'RandomIntent') {
+  } else if (intentName == 'RandomIntent') {
     intentName = intents[Math.floor(Math.random() * intents.length)];
-  } else if (intentsMapping.has(intentName)) {
+  } else if (intentName in intentsMapping) {
     callFirebase(intentsMapping[intentName], callback);
   } else {
     throw "Invalid intent";
   }
 }
-// (intentName in intentsMapping)
-    // if (intentName == 'EarthIntent') {
-    //   callFirebase('earth', callback);
-    // } else if (intentName == 'MarsIntent') {
-    //   callFirebase('mars', callback);
-    // } else if (intentName == 'GirlfriendIntent') {
-    //   callFirebase('girlfriend', callback);
-    // } else if (intentName == 'SpaceIntent') {
-    //   callFirebase('space', callback);
-    // } else if (intentName == 'OrbitIntent') {
-    //   callFirebase('orbit', callback);
-    // } else if (intentName == 'StratosphereIntent') {
-    //   callFirebase('stratosphere', callback);
-    // } else if (intentName == 'SunIntent') {
-    //   callFirebase('sun', callback);
-    // } else if (intentName == 'FalconIntent') {
-    //   callFirebase('falcon', callback);
-    // }
-
 
 function helpUser(callback) {
   callback(buildSpeechResponse("You can go to Mars, Earth or even to the depths of the universe", "Where would you like to go?", true))
