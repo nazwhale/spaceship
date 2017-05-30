@@ -23,6 +23,12 @@
     },
     {
       "intent": "GirlfriendIntent"
+    },
+    {
+      "intent": "RandomIntent"
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
     }
   ]
 }

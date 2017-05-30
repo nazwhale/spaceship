@@ -1,4 +1,12 @@
 var request = require("request");
+var intents = ['EarthIntent',
+               'MarsIntent',
+               'GirlfriendIntent',
+               'SpaceIntent',
+               'OrbitIntent',
+               'StratosphereIntent',
+               'SunIntent',
+               'FalconIntent'];
 
 exports.handler = function(event, context) { eventHandler(event, context); };
 
@@ -24,6 +32,9 @@ function welcomeOnBoard(callback) {
 
 function sortIntents(intentRequest, callback) {
     var intentName = intentRequest.intent.name;
+    if (intentName == 'RandomIntent') {
+      intentName = intents[Math.floor(Math.random() * intents.length)];
+    }
     if (intentName == 'EarthIntent') {
       callFirebase('earth', callback);
     } else if (intentName == 'MarsIntent') {
@@ -40,16 +51,21 @@ function sortIntents(intentRequest, callback) {
       callFirebase('sun', callback);
     } else if (intentName == 'FalconIntent') {
       callFirebase('falcon', callback);
+    } else if (intentName == 'AMAZON.HelpIntent') {
+      helpUser(callback);
     } else {
       throw "Invalid intent";
     }
 }
 
+function helpUser(callback) {
+  callback(buildSpeechResponse("You can go to Mars, Earth or even to the depths of the universe", "Where would you like to go?", true))
+};
 
 function callFirebase(planet, callback) {
   var url = 'https://fcm.googleapis.com/fcm/send';
   var serverKey = "key=AAAAaI2ZfFw:APA91bGqDh70rNfC8Gtwdxhut5sKhG7td0okEetwnhjWtzvTSC4jJIOReD2nEXkpT4OqMIciJptTxk7Du8MJmvrcW7jTKhiAh7XJYq2kBG2wIQOiwUerx014rpk7nt1JknAS-jdpUJxB";
-  var clientToken = "dmcS0ffLcCM:APA91bHWZ958Na0pG7cdLqHDPJJtlenkxUPvNSI0nhGgdv_209JcNUzbAAbPAGecUn8sufTbksXowWOUa7Xm--jSdAr2M2r0e1TUKTtp0QApCaevYJyzbHSv-eepkUMTGA_RqCSxwLxv";
+  var clientToken = "ekG7UmwtUzo:APA91bHdZYVy_sjfNwRzJmlsH9tfIKVn2_kXu1rl5eFmSw6HjNAwY-oyXQCyTHr_2sYcmk7ZP-nJgVpOIhFywyhR4EVGYzSqwpIOFHTHItzC9fVDHwAx6riOWa74nkAM_18Ti_R6AKLV";
   var options = {
     url: url,
     headers: {
