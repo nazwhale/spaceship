@@ -74,6 +74,21 @@ Later we looked to create the same effect via an HTTPS POST request from AWS Lam
 
 *Major Naz*
 
+Day 6 - 7
+
+*Chief engineer Calbayrac, stardate 29.4.2017*
+Writing from the USS Challengers.
+
+The voyage is coming to an end. After a short Saturday where we celebrated the newly reached MVP, we spent some time to listen to Kate as she walked us through the code she wrote to finally make our lovely Alexa change the views using only our sweet voices. After what we tried to pair and accomplish some work but fatigue had caught up with us and we decided to have an early stop.
+
+Today we gathered to work on making the experience smoother on smartphone, and we were able to link an Android to Alexa. 
+
+Using the console of Kate’s Android phone we found the browser’s token and hardcoded it in the lambda function. Once done, Alexa had no difficulty to change the views of the different worlds we explored, including one populated of giants. While ensign Gleeson was doing that, Major Naz and I were adding new scenes and found the best way to do great VR pictures. Now you can visit the depths of the universe as well as our beautiful blue planet.
+
+After lunch we were able, with the help of the database in Firebase, to save the token of every browsers visiting our web app, works perfectly with computers and Android phones but iPhones are still reluctant to share that piece of information with us. We tried many options but so far we still can’t put our hand on iPhones browser’s token. 
+
+We ended the day with a brainstorm on what the following days will be about. We are going to focus on the user experience, make sure that it’s easy for every user to enjoy our VR experience, and for that we are going to need their browser token, but how? We have a couple good ways to do test. It’s gonna be challenging but we live for that. We are Challengers.
+
 ### User Stories
 
 * As a Space User,
