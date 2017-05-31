@@ -26,8 +26,10 @@ document.addEventListener('DOMContentLoaded', function() {
     } else if (intent == "removeMonolith") {
       removeMonolith();
     } else if (intent == "addRain") {
+      console.log("IT SHOULD BE RAINING")
       addRain();
     } else if (intent == "stopRain") {
+      console.log("ITS NOT RAINING ANYMOOOORE")
       stopRain();
     } else {
       changeSky("#" + intent);
