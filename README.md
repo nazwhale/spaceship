@@ -76,7 +76,7 @@ Later we looked to create the same effect via an HTTPS POST request from AWS Lam
 
 Day 6 - 7
 
-*Chief engineer Calbayrac, stardate 29.4.2017*
+*Chief engineer Calbayrac, stardate 29.4.2017* -
 *Writing from the USS Challengers.*
 
 The voyage is coming to an end. After a short Saturday where we celebrated the newly reached MVP, we spent some time to listen to Kate as she walked us through the code she wrote to finally make our lovely Alexa change the views using only our sweet voices. After what we tried to pair and accomplish some work but fatigue had caught up with us and we decided to have an early stop.
