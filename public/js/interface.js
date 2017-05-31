@@ -19,7 +19,7 @@
 
   function removeMonolith() {
     var element = document.getElementById('monolith')
-    element.parentNode.removeChild(element);
+    element.removeAttribute('monolith', '');
   }
 
   function addRain() {
