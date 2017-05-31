@@ -1,5 +1,10 @@
 PlanetIntent take me to {planet}
 PlanetIntent to take me to {planet}
+PlanetIntent take me to my {planet}
+PlanetIntent to take me to my {planet}
+PlanetIntent take me into {planet}
+PlanetIntent to take me into {planet}
+PlanetIntent i want to lie in the grass with my {planet}
 RandomIntent take me to a random location
 RandomIntent random
 RandomIntent to take me to a random location
@@ -12,6 +17,7 @@ AddUfoIntent add {ufo}
 AddUfoIntent to add {ufo}
 AddUfoIntent to add a {ufo}
 AddUfoIntent show me {ufo}
+AddUfoIntent make it {ufo}
 RemoveUfoIntent remove {ufo}
 RemoveUfoIntent remove the {ufo}
 RemoveUfoIntent stop {ufo}

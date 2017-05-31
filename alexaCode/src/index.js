@@ -22,7 +22,7 @@ function welcomeOnBoard(callback) {
 }
 
 function helpUser(callback) {
-  callback(buildSpeechResponse("You can orbit earth, visit the stratosphere, or go to mars, the sun, or the depths of space.  Or you can ask the spaceship to take you home.", "", true));
+  callback(buildSpeechResponse("You can orbit earth, visit the stratosphere, or go to mars, the sun, or the depths of space.  Or you can ask the spaceship to take you back to earth.", "", true));
 }
 
 function getToken(intentRequest, callback) {
@@ -54,35 +54,29 @@ function determineIntent(intentRequest, callback, token) {
 }
 
 function callFirebaseToRemoveUfo(ufo, callback, token) {
-  var options = {
-    url: url(),
-    headers: {
-      'Authorization': serverKey(),
-      'Content-Type': 'application/json'
-    },
-    json: {"to": token,"priority":"high","notification":{"title": 'remove' + ufo}}
-  };
+  var options = buildOptions(token, 'remove' + ufo);
   request.post(options, function(error, response, body) {
     if(body.success == 1) {
-      callback(buildSpeechResponse("feature removed", "", true));
+      reportUfoRemoved(ufo, callback);
     } else {
       callback(buildSpeechResponse("lost in space above all drifting", "", true));
     }
   });
 }
 
+function reportUfoRemoved(ufo, callback) {
+  if(['rain'].includes(ufo)) {
+    callback(buildSpeechResponse(ufo + " stopped", "", true));
+  } else if(['monolith'].includes(ufo)) {
+    callback(buildSpeechResponse(ufo + " removed", "", true));
+  }
+}
+
 function callFirebaseToAddUfo(ufo, callback, token) {
-  var options = {
-    url: url(),
-    headers: {
-      'Authorization': serverKey(),
-      'Content-Type': 'application/json'
-    },
-    json: {"to": token,"priority":"high","notification":{"title": ufo}}
-  };
+  var options = buildOptions(token, ufo);
   request.post(options, function(error, response, body) {
     if(body.success == 1) {
-      callback(buildSpeechResponse("feature added", "", true));
+      callback(buildSpeechResponse(ufo + " added", "", true));
     } else {
       callback(buildSpeechResponse("lost in space above all drifting", "", true));
     }
@@ -90,14 +84,7 @@ function callFirebaseToAddUfo(ufo, callback, token) {
 }
 
 function callFirebaseWithPlanet(planet, callback, token) {
-  var options = {
-    url: url(),
-    headers: {
-      'Authorization': serverKey(),
-      'Content-Type': 'application/json'
-    },
-    json: {"to": token,"priority":"high","notification":{"title": planet}}
-  };
+  var options = buildOptions(token, planet);
   request.post(options, function(error, response, body) {
     if(body.success == 1) {
       reportPlanetChanged(planet, callback);
@@ -119,11 +106,15 @@ function reportPlanetChanged(planet, callback) {
   }
 }
 
-function url() {
-  return 'https://fcm.googleapis.com/fcm/send';
-}
-function serverKey() {
-  return "key=AAAAaI2ZfFw:APA91bGqDh70rNfC8Gtwdxhut5sKhG7td0okEetwnhjWtzvTSC4jJIOReD2nEXkpT4OqMIciJptTxk7Du8MJmvrcW7jTKhiAh7XJYq2kBG2wIQOiwUerx014rpk7nt1JknAS-jdpUJxB";
+function buildOptions(token, title) {
+  return {
+    url: 'https://fcm.googleapis.com/fcm/send',
+    headers: {
+      'Authorization': "key=AAAAaI2ZfFw:APA91bGqDh70rNfC8Gtwdxhut5sKhG7td0okEetwnhjWtzvTSC4jJIOReD2nEXkpT4OqMIciJptTxk7Du8MJmvrcW7jTKhiAh7XJYq2kBG2wIQOiwUerx014rpk7nt1JknAS-jdpUJxB",
+      'Content-Type': 'application/json'
+    },
+    json: {"to": token,"priority":"high","notification":{"title": title}}
+  };
 }
 
 function buildSpeechResponse(output, repromptText, shouldEndSession) {
