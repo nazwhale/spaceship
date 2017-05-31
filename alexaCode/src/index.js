@@ -29,13 +29,9 @@ function determineIntent(intentRequest, callback) {
     planet = planets[Math.floor(Math.random() * planets.length)];
     getToken(planet, callback);
   } else if(intentName == 'PlanetIntent') {
-    console.log('Planet intent recognised!');
-    console.log('this is the planet...' + intentRequest.intent.slots.planet.name);
-    getToken(intentRequest.intent.slots.planet.name, callback);
+    getToken(intentRequest.intent.slots.planet.value, callback);
   } else if (intentName == 'AMAZON.HelpIntent') {
-    helpUser(callback) ;
-  } else if (intentName in intentsMapping) {
-    getToken(intentsMapping[intentName], callback);
+    helpUser(callback);
   } else {
     throw "Invalid intent";
   }
