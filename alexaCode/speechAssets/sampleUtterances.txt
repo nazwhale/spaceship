@@ -10,6 +10,8 @@ SpaceIntent take me to space
 OrbitIntent take me into orbit
 SunIntent take me to the sun
 GirlfriendIntent i want to lie in the grass with my girlfriend
+MakersIntent bring me to makers
+MakersIntent bring me to makers academy
 RandomIntent take me to a random location
 RandomIntent random
 RandomIntent surprise me
