@@ -45,8 +45,8 @@ function determineIntent(intentRequest, callback) {
                        "AddMonolithIntent": "addMonolith",
                        "RemoveMonolithIntent": "removeMonolith",
                        "AddRainIntent": "addRain",
-                       "StopRainIntent": "stopRain"
-                       "MakersIntent": "makers"
+                       "StopRainIntent": "stopRain",
+                       "MakersIntent": "school"
                       };
 
   if (intentName == 'AMAZON.HelpIntent') {
