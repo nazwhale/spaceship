@@ -47,7 +47,7 @@ function determineIntent(intentRequest, callback) {
   } else if (intentName == 'RandomIntent') {
     intentName = intents[Math.floor(Math.random() * intents.length)];
   } else if (intentName in intentsMapping) {
-    callFirebase(intentsMapping[intentName], callback);
+    getToken(intentsMapping[intentName], callback);
   } else {
     throw "Invalid intent";
   }
@@ -57,10 +57,10 @@ function helpUser(callback) {
   callback(buildSpeechResponse("You can go to Mars, Earth or even to the depths of the universe", "Where would you like to go?", true))
 };
 
-function callFirebase(planet, callback) {
+function callFirebase(planet, callback, token) {
   var url = 'https://fcm.googleapis.com/fcm/send';
   var serverKey = "key=AAAAaI2ZfFw:APA91bGqDh70rNfC8Gtwdxhut5sKhG7td0okEetwnhjWtzvTSC4jJIOReD2nEXkpT4OqMIciJptTxk7Du8MJmvrcW7jTKhiAh7XJYq2kBG2wIQOiwUerx014rpk7nt1JknAS-jdpUJxB";
-  var clientToken = getToken();
+  var clientToken = token;
   var options = {
     url: url,
     headers: {
@@ -78,12 +78,12 @@ function callFirebase(planet, callback) {
   });
 }
 
-function getToken() {
-  var url = "https://spaceship-test.firebaseio.com/browserTokens.json?orderBy=timestamp&limitToLast=1";
+function getToken(planet, callback) {
+  var url = 'https://spaceship-test.firebaseio.com/browserTokens.json?orderBy="timestamp"&limitToLast=1';
   request.get(url, function(error, response, body) {
-    jsonObj = JSON.parse(body);
+    var jsonObj = JSON.parse(body);
     for (var firstKey in jsonObj) break;
-    return jsonObj[firstKey]['token'];
+    callFirebase(planet, callback, jsonObj[firstKey]['token']);
   });
 }
 
