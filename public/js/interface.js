@@ -8,7 +8,7 @@
   function addMonolith() {
     var box = document.createElement('a-box');
     document.querySelector('a-scene').appendChild(box);
-    box.setAttribute('id', '#monolith');
+    box.setAttribute('id', 'monolith');
     box.setAttribute('color', '#222');
     box.setAttribute('width', '0.5');
     box.setAttribute('height', '4');
@@ -18,10 +18,22 @@
   }
 
   function removeMonolith() {
-    var element = document.getElementById('#monolith')
+    var element = document.getElementById('monolith')
     element.parentNode.removeChild(element);
   }
 
+  function addRain() {
+    var element = document.getElementById('scene')
+    element.setAttribute('rain', '');
+  }
+
+  function stopRain() {
+    var element = document.getElementById('scene')
+    element.removeAttribute('rain', '');
+  }
+
+  exports.addRain = addRain;
+  exports.stopRain = stopRain;
   exports.addMonolith = addMonolith;
   exports.removeMonolith = removeMonolith;
   exports.changeSky = changeSky;
