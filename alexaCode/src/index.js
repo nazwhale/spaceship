@@ -8,7 +8,7 @@ function eventHandler(event, context) {
             context.succeed(buildResponse(event.session.attributes, speechResponse));
           });
         } else if (event.request.type === "IntentRequest") {
-            determineIntent(event.request, function callback(speechResponse) {
+            getToken(event.request, function callback(speechResponse) {
               context.succeed(buildResponse(event.session.attributes, speechResponse));
             });
         }
@@ -17,19 +17,28 @@ function eventHandler(event, context) {
   }
 }
 
+function getToken(intentRequest, callback) {
+  var url = 'https://spaceship-test.firebaseio.com/browserTokens.json?orderBy="timestamp"&limitToLast=1';
+  request.get(url, function(error, response, body) {
+    var jsonObj = JSON.parse(body);
+    for (var firstKey in jsonObj) break;
+    determineIntent(intentRequest, callback, jsonObj[firstKey]['token']);
+  });
+}
+
 
 function welcomeOnBoard(callback) {
   callback(buildSpeechResponse("welcome aboard", "where to captain?", false));
 }
 
-function determineIntent(intentRequest, callback) {
+function determineIntent(intentRequest, callback, token) {
   var intentName = intentRequest.intent.name;
   var planets = ['earth', 'mars', 'girlfriend', 'space', 'orbit', 'stratosphere', 'sun', 'falcon'];
   if (intentName == 'RandomIntent') {
     planet = planets[Math.floor(Math.random() * planets.length)];
-    getToken(planet, callback);
+    callFirebase(planet, callback, token);
   } else if(intentName == 'PlanetIntent') {
-    getToken(intentRequest.intent.slots.planet.value, callback);
+    callFirebase(intentRequest.intent.slots.planet.value, callback, token);
   } else if (intentName == 'AMAZON.HelpIntent') {
     helpUser(callback);
   } else {
@@ -62,14 +71,7 @@ function callFirebase(planet, callback, token) {
   });
 }
 
-function getToken(planet, callback) {
-  var url = 'https://spaceship-test.firebaseio.com/browserTokens.json?orderBy="timestamp"&limitToLast=1';
-  request.get(url, function(error, response, body) {
-    var jsonObj = JSON.parse(body);
-    for (var firstKey in jsonObj) break;
-    callFirebase(planet, callback, jsonObj[firstKey]['token']);
-  });
-}
+
 
 function buildSpeechResponse(output, repromptText, shouldEndSession) {
     return {
