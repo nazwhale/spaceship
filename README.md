@@ -58,11 +58,21 @@ Finally, I took the space shuttle to return to the mother base, looking at the s
 
 On the fourth day of our voyage we found ourselves exploring unmapped frontiers in the form of Alexa and Firebase.  It was all a bit scary to say the least.  
 
-We already had the code to render our immersive interplanetary experience.  The next step was to teach Alexa to take the user to wherever said user asked.  Our intrepid coding team had attended talks, fired off emails, and interrogated every available expert, and concuded that Firebase might be the solution to the problem, functioning as an intermediary between AWS Lambda (the platform running our Alexa code) and the user’s device browser.
+We already had the code to render our immersive interplanetary experience.  The next step was to teach Alexa to take the user to wherever said user asked.  Our intrepid coding team had attended talks, fired off emails, and interrogated every available expert, and concluded that Firebase might be the solution to the problem, functioning as an intermediary between AWS Lambda (the platform running our Alexa code) and the user’s device browser.
 
 Today we split into two teams, tackling the problem from both ends (AWS Lambda and Firebase) and valiantly hoping that we would meet in the middle.  And so far it’s all going relatively well.
 
 The mission continues…
+
+#### Day 5
+
+After splitting into two orbiting modules on day 4, both teams ventured into the deep space between AWS Lambda and Firebase, hoping to meet someday.
+
+The Firebase team looked to edit our VR views using cURL requests from the command line. First a 'listener' was created using Firebase's 'messaging' functionality, and after a bit of tinkering, we managed to send it a signal via cURL. The listener listened and the view changed.
+
+Later we looked to create the same effect via an HTTPS POST request from AWS Lambda. After some hard graft, we achieved this from the browser console. Later that evening, after a rocket fuel injection, Ensign Gleeson managed to insert the code into AWS Lambda and specify the Alexa intents to change views. Finally sweet contact was made. 
+
+*Major Naz*
 
 ### User Stories
 
