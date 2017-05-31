@@ -89,6 +89,17 @@ After lunch we were able, with the help of the database in Firebase, to save the
 
 We ended the day with a brainstorm on what the following days will be about. We are going to focus on the user experience, make sure that it’s easy for every user to enjoy our VR experience, and for that we are going to need their browser token, but how? We have a couple good ways to do test. It’s gonna be challenging but we live for that. We are Challengers.
 
+#### Day 5
+
+*Ensign Gleeson's log, stardate 30.4.2017*
+
+With Alexa linked up to our code on Firebase, today we went into warp drive.  We added new features to Alexa in the morning, and in the afternoon stared adding more interesting elements to our VR experience.  Before long our space odyssey had its very own monolith, capable of travelling to all corners of the universe in order to loom mysteriously. 
+
+Towards the end of the day, sadly, we got blocked by a single knarly Jasmine test, and eventually had to admit temporary defeat.
+
+Tomorrow, however, we will continue boldy onward.
+
+
 ### User Stories
 
 * As a Space User,
