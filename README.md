@@ -89,7 +89,7 @@ After lunch we were able, with the help of the database in Firebase, to save the
 
 We ended the day with a brainstorm on what the following days will be about. We are going to focus on the user experience, make sure that it’s easy for every user to enjoy our VR experience, and for that we are going to need their browser token, but how? We have a couple good ways to do test. It’s gonna be challenging but we live for that. We are Challengers.
 
-#### Day 5
+#### Day 8
 
 *Ensign Gleeson's log, stardate 30.4.2017*
 
