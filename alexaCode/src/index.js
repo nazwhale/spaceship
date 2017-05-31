@@ -17,7 +17,6 @@ function eventHandler(event, context) {
   }
 }
 
-
 function welcomeOnBoard(callback) {
   callback(buildSpeechResponse("welcome aboard", "where to captain?", false));
 }
