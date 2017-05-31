@@ -6,7 +6,8 @@ var intents = ['EarthIntent',
                'OrbitIntent',
                'StratosphereIntent',
                'SunIntent',
-               'FalconIntent'];
+               'FalconIntent',
+               ];
 
 exports.handler = function(event, context) { eventHandler(event, context); };
 
@@ -39,7 +40,11 @@ function determineIntent(intentRequest, callback) {
                        "OrbitIntent": "orbit",
                        "StratosphereIntent": "stratosphere",
                        "SunIntent": "sun",
-                       "FalconIntent": "falcon"
+                       "FalconIntent": "falcon",
+                       "AddMonolithIntent": "addMonolith",
+                       "RemoveMonolithIntent": "removeMonolith",
+                       "AddRainIntent": "addRain",
+                       "StopRainIntent": "stopRain"
                       };
 
   if (intentName == 'AMAZON.HelpIntent') {
