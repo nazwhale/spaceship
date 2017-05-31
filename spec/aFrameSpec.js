@@ -17,7 +17,7 @@ describe('#Monolith', function() {
 
   it('removes a monolith to the view', function() {
     // DON'T KNOW HOW TO BLOODY PASS THIS TEST
-    dummyElement = document.createElement('div');
+    var dummyElement = document.createElement('div');
     dummyChild = document.createElement('div');
     dummyElement.appendChild(dummyChild);
     spyOn(document, 'getElementById').and.returnValue(dummyChild);
