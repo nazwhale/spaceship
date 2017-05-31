@@ -11,7 +11,11 @@ AMAZON.HelpIntent what are my options
 AddUfoIntent add {ufo}
 AddUfoIntent to add {ufo}
 AddUfoIntent to add a {ufo}
-AddUfoIntent show me {ufo} 
+AddUfoIntent show me {ufo}
+RemoveUfoIntent remove {ufo}
+RemoveUfoIntent remove the {ufo}
+RemoveUfoIntent stop {ufo}
+RemoveUfoIntent stop the {ufo}
 
 LIST_OF_PLANETS
 earth

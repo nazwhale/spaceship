@@ -41,11 +41,34 @@ function determineIntent(intentRequest, callback, token) {
     callFirebaseWithPlanet(intentRequest.intent.slots.planet.value, callback, token);
   } else if(intentName == 'AddUfoIntent') {
     callFirebaseToAddUfo(intentRequest.intent.slots.ufo.value, callback, token);
+  } else if(intentName == 'RemoveUfoIntent') {
+    callFirebaseToRemoveUfo(intentRequest.intent.slots.ufo.value, callback, token);
   } else if (intentName == 'AMAZON.HelpIntent') {
     helpUser(callback);
   } else {
     throw "Invalid intent";
   }
+}
+
+function callFirebaseToRemoveUfo(ufo, callback, token) {
+  var url = 'https://fcm.googleapis.com/fcm/send';
+  var serverKey = "key=AAAAaI2ZfFw:APA91bGqDh70rNfC8Gtwdxhut5sKhG7td0okEetwnhjWtzvTSC4jJIOReD2nEXkpT4OqMIciJptTxk7Du8MJmvrcW7jTKhiAh7XJYq2kBG2wIQOiwUerx014rpk7nt1JknAS-jdpUJxB";
+  var clientToken = token;
+  var options = {
+    url: url,
+    headers: {
+      'Authorization': serverKey,
+      'Content-Type': 'application/json'
+    },
+    json: {"to": clientToken,"priority":"high","notification":{"title": 'remove' + ufo}}
+  };
+  request.post(options, function(error, response, body) {
+    if(body.success == 1) {
+      callback(buildSpeechResponse("feature removed", "", true));
+    } else {
+      callback(buildSpeechResponse("lost in space above all drifting", "", true));
+    }
+  });
 }
 
 function callFirebaseToAddUfo(ufo, callback, token) {
@@ -62,7 +85,7 @@ function callFirebaseToAddUfo(ufo, callback, token) {
   };
   request.post(options, function(error, response, body) {
     if(body.success == 1) {
-      callback(buildSpeechResponse("feature added", true));
+      callback(buildSpeechResponse("feature added", "", true));
     } else {
       callback(buildSpeechResponse("lost in space above all drifting", "", true));
     }

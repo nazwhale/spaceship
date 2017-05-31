@@ -24,11 +24,11 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log(payload.notification.title)
     if (intent == "monolith") {
       addMonolith();
-    } else if (intent == "removeMonolith") {
+    } else if (intent == "removemonolith") {
       removeMonolith();
     } else if (intent == "rain") {
       addRain();
-    } else if (intent == "stopRain") {
+    } else if (intent == "removerain") {
       stopRain();
     } else {
       changeSky("#" + intent);

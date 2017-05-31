@@ -23,6 +23,15 @@
         }
       ],
       "intent": "AddUfoIntent"
+    },
+    {
+      "slots": [
+        {
+          "name": "ufo",
+          "type": "LIST_OF_UFOS"
+        }
+      ],
+      "intent": "RemoveUfoIntent"
     }
   ]
 }
