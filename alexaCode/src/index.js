@@ -58,7 +58,6 @@ function sortIntents(intentRequest, callback) {
   }
 }
 
-
 function helpUser(callback) {
   callback(buildSpeechResponse("You can go to Mars, Earth or even to the depths of the universe", "Where would you like to go?", true))
 };
