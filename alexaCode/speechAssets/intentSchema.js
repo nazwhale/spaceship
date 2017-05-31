@@ -1,46 +1,13 @@
 {
   "intents": [
     {
-      "intent": "MarsIntent"
-    },
-    {
-      "intent": "EarthIntent"
-    },
-    {
-      "intent": "FalconIntent"
-    },
-    {
-      "intent": "StratosphereIntent"
-    },
-    {
-      "intent": "SpaceIntent"
-    },
-    {
-      "intent": "OrbitIntent"
-    },
-    {
-      "intent": "SunIntent"
-    },
-    {
-      "intent": "GirlfriendIntent"
-    },
-    {
-      "intent": "RandomIntent"
-    },
-    {
-      "intent": "AddMonolithIntent"
-    },
-    {
-      "intent": "RemoveMonolithIntent"
-    },
-    {
-      "intent": "AddRainIntent"
-    },
-    {
-      "intent": "StopRainIntent"
-    },
-    {
-      "intent": "AMAZON.HelpIntent"
+      "intent": "PlanetIntent",
+      "slots": [
+        {
+          "name": "planet",
+          "type": "LIST_OF_PLANETS"
+        }
+      ]
     }
   ]
 }

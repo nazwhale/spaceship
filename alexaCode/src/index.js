@@ -24,23 +24,14 @@ function welcomeOnBoard(callback) {
 
 function determineIntent(intentRequest, callback) {
   var intentName = intentRequest.intent.name;
-  var intentsMapping = {"EarthIntent": "earth",
-                       "MarsIntent": "mars",
-                       "GirlfriendIntent": "girlfriend",
-                       "SpaceIntent": "space",
-                       "OrbitIntent": "orbit",
-                       "StratosphereIntent": "stratosphere",
-                       "SunIntent": "sun",
-                       "FalconIntent": "falcon",
-                       "AddMonolithIntent": "addMonolith",
-                       "RemoveMonolithIntent": "removeMonolith",
-                       "AddRainIntent": "addRain",
-                       "StopRainIntent": "stopRain"
-                      };
-  var intents = ['EarthIntent', 'MarsIntent', 'GirlfriendIntent', 'SpaceIntent', 'OrbitIntent', 'StratosphereIntent', 'SunIntent', 'FalconIntent'];
+  var planets = ['earth', 'mars', 'girlfriend', 'space', 'orbit', 'stratosphere', 'sun', 'falcon'];
   if (intentName == 'RandomIntent') {
-    intentName = intents[Math.floor(Math.random() * intents.length)];
-    getToken(intentsMapping[intentName], callback);
+    planet = planets[Math.floor(Math.random() * planets.length)];
+    getToken(planet, callback);
+  } else if(intentName == 'PlanetIntent') {
+    console.log('Planet intent recognised!');
+    console.log('this is the planet...' + intentRequest.intent.slots.planet.name);
+    getToken(intentRequest.intent.slots.planet.name, callback);
   } else if (intentName == 'AMAZON.HelpIntent') {
     helpUser(callback) ;
   } else if (intentName in intentsMapping) {
@@ -51,8 +42,8 @@ function determineIntent(intentRequest, callback) {
 }
 
 function helpUser(callback) {
-  callback(buildSpeechResponse("You can go to Mars, Earth or even to the depths of the universe", "Where would you like to go?", true))
-};
+  callback(buildSpeechResponse("You can go to Mars, Earth or even to the depths of the universe", "Where would you like to go?", true));
+}
 
 function callFirebase(planet, callback, token) {
   var url = 'https://fcm.googleapis.com/fcm/send';
