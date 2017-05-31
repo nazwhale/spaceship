@@ -6,7 +6,8 @@ var intents = ['EarthIntent',
                'OrbitIntent',
                'StratosphereIntent',
                'SunIntent',
-               'FalconIntent'];
+               'FalconIntent',
+               ];
 
 exports.handler = function(event, context) { eventHandler(event, context); };
 
@@ -41,7 +42,9 @@ function sortIntents(intentRequest, callback) {
                        "SunIntent": "sun",
                        "FalconIntent": "falcon",
                        "AddMonolithIntent": "addMonolith",
-                       "RemoveMonolithIntent": "removeMonolith"
+                       "RemoveMonolithIntent": "removeMonolith",
+                       "AddRainIntent": "addRain",
+                       "StopRainIntent": "stopRain"
                       };
 
   if (intentName == 'AMAZON.HelpIntent') {
@@ -54,7 +57,6 @@ function sortIntents(intentRequest, callback) {
     throw "Invalid intent";
   }
 }
-
 
 function helpUser(callback) {
   callback(buildSpeechResponse("You can go to Mars, Earth or even to the depths of the universe", "Where would you like to go?", true))
