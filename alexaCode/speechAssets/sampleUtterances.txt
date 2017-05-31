@@ -14,5 +14,17 @@ RandomIntent take me to a random location
 RandomIntent random
 RandomIntent surprise me
 RandomIntent I'm feeling lucky
+AddMonolithIntent add monolith
+AddMonolithIntent add a monolith
+AddMonolithIntent add
+AddMonolithIntent create monolith
+AddMonolithIntent create a monolith
+AddMonolithIntent create
+RemoveMonolithIntent remove monolith
+RemoveMonolithIntent remove a monolith
+RemoveMonolithIntent remove
+RemoveMonolithIntent destroy monolith
+RemoveMonolithIntent destroy a monolith
+RemoveMonolithIntent destroy
 AMAZON.HelpIntent where can I go
 AMAZON.HelpIntent what are my options

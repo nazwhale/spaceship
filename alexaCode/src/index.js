@@ -6,7 +6,9 @@ var intents = ['EarthIntent',
                'OrbitIntent',
                'StratosphereIntent',
                'SunIntent',
-               'FalconIntent'];
+               'FalconIntent',
+               'AddMonolithIntent',
+               'RemoveMonolithIntent'];
 
 exports.handler = function(event, context) { eventHandler(event, context); };
 
@@ -51,12 +53,25 @@ function sortIntents(intentRequest, callback) {
       callFirebase('sun', callback);
     } else if (intentName == 'FalconIntent') {
       callFirebase('falcon', callback);
+    } else if (intentName == 'AddMonolithIntent') {
+      callFirebase('add', callback)
+    } else if (intentName == 'RemoveMonolithIntent') {
+      callFirebase('removes', callback)
     } else if (intentName == 'AMAZON.HelpIntent') {
       helpUser(callback);
     } else {
       throw "Invalid intent";
     }
 }
+
+// function addMonolith() {
+//
+// };
+//
+// function removeMonolith() {
+//
+// };
+
 
 function helpUser(callback) {
   callback(buildSpeechResponse("You can go to Mars, Earth or even to the depths of the universe", "Where would you like to go?", true))
