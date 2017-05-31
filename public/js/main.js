@@ -22,11 +22,11 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Changing sky...');
     var intent = payload.notification.title
     console.log(payload.notification.title)
-    if (intent == "addMonolith") {
+    if (intent == "monolith") {
       addMonolith();
     } else if (intent == "removeMonolith") {
       removeMonolith();
-    } else if (intent == "addRain") {
+    } else if (intent == "rain") {
       addRain();
     } else if (intent == "stopRain") {
       stopRain();

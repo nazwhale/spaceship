@@ -36,9 +36,11 @@ function determineIntent(intentRequest, callback, token) {
   var planets = ['earth', 'mars', 'girlfriend', 'space', 'orbit', 'stratosphere', 'sun', 'falcon'];
   if (intentName == 'RandomIntent') {
     planet = planets[Math.floor(Math.random() * planets.length)];
-    callFirebase(planet, callback, token);
+    callFirebaseWithPlanet(planet, callback, token);
   } else if(intentName == 'PlanetIntent') {
-    callFirebase(intentRequest.intent.slots.planet.value, callback, token);
+    callFirebaseWithPlanet(intentRequest.intent.slots.planet.value, callback, token);
+  } else if(intentName == 'AddUfoIntent') {
+    callFirebaseToAddUfo(intentRequest.intent.slots.ufo.value, callback, token);
   } else if (intentName == 'AMAZON.HelpIntent') {
     helpUser(callback);
   } else {
@@ -46,11 +48,32 @@ function determineIntent(intentRequest, callback, token) {
   }
 }
 
+function callFirebaseToAddUfo(ufo, callback, token) {
+  var url = 'https://fcm.googleapis.com/fcm/send';
+  var serverKey = "key=AAAAaI2ZfFw:APA91bGqDh70rNfC8Gtwdxhut5sKhG7td0okEetwnhjWtzvTSC4jJIOReD2nEXkpT4OqMIciJptTxk7Du8MJmvrcW7jTKhiAh7XJYq2kBG2wIQOiwUerx014rpk7nt1JknAS-jdpUJxB";
+  var clientToken = token;
+  var options = {
+    url: url,
+    headers: {
+      'Authorization': serverKey,
+      'Content-Type': 'application/json'
+    },
+    json: {"to": clientToken,"priority":"high","notification":{"title": ufo}}
+  };
+  request.post(options, function(error, response, body) {
+    if(body.success == 1) {
+      callback(buildSpeechResponse("feature added", true));
+    } else {
+      callback(buildSpeechResponse("lost in space above all drifting", "", true));
+    }
+  });
+}
+
 function helpUser(callback) {
   callback(buildSpeechResponse("You can go to Mars, Earth or even to the depths of the universe", "Where would you like to go?", true));
 }
 
-function callFirebase(planet, callback, token) {
+function callFirebaseWithPlanet(planet, callback, token) {
   var url = 'https://fcm.googleapis.com/fcm/send';
   var serverKey = "key=AAAAaI2ZfFw:APA91bGqDh70rNfC8Gtwdxhut5sKhG7td0okEetwnhjWtzvTSC4jJIOReD2nEXkpT4OqMIciJptTxk7Du8MJmvrcW7jTKhiAh7XJYq2kBG2wIQOiwUerx014rpk7nt1JknAS-jdpUJxB";
   var clientToken = token;
