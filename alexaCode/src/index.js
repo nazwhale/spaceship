@@ -1,14 +1,4 @@
 var request = require("request");
-var intents = ['EarthIntent',
-               'MarsIntent',
-               'GirlfriendIntent',
-               'SpaceIntent',
-               'OrbitIntent',
-               'StratosphereIntent',
-               'SunIntent',
-               'FalconIntent',
-               'MakersIntent'
-               ];
 
 exports.handler = function(event, context) { eventHandler(event, context); };
 
@@ -26,7 +16,6 @@ function eventHandler(event, context) {
     context.fail("Exception: " + e);
   }
 }
-
 
 function welcomeOnBoard(callback) {
   callback(buildSpeechResponse("welcome aboard", "where to captain?", false));
@@ -48,11 +37,12 @@ function determineIntent(intentRequest, callback) {
                        "StopRainIntent": "stopRain",
                        "MakersIntent": "school"
                       };
-
-  if (intentName == 'AMAZON.HelpIntent') {
-    helpUser(callback);
-  } else if (intentName == 'RandomIntent') {
+  var intents = ['EarthIntent', 'MarsIntent', 'GirlfriendIntent', 'SpaceIntent', 'OrbitIntent', 'StratosphereIntent', 'SunIntent', 'FalconIntent'];
+  if (intentName == 'RandomIntent') {
     intentName = intents[Math.floor(Math.random() * intents.length)];
+    getToken(intentsMapping[intentName], callback);
+  } else if (intentName == 'AMAZON.HelpIntent') {
+    helpUser(callback) ;
   } else if (intentName in intentsMapping) {
     getToken(intentsMapping[intentName], callback);
   } else {
