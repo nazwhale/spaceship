@@ -2,8 +2,8 @@ describe('#changeSky', function() {
   it('changes the 3D view', function() {
     var dummyElement = document.createElement('div');
     spyOn(document, 'getElementById').and.returnValue(dummyElement);
-    changeSky('#earth');
-    expect(dummyElement.getAttribute('src')).toEqual('#earth');
+    changeSky('earth');
+    expect(dummyElement.getAttribute('src')).toEqual('earth');
   });
 });
 
@@ -26,5 +26,15 @@ describe('#removeMonolith', function() {
     dummyChild.setAttribute('id', 'monolith');
     removeMonolith();
     expect(dummyElement.innerHTML).not.toContain("id='monolith'");
+  });
+});
+
+describe('#addRain', function() {
+  it('add a nice refreshing rain to the view', function() {
+    dummyElement = document.createElement('div');
+    spyOn(document, 'getElementById').and.returnValue(dummyElement);
+    dummyElement.setAttribute('id', 'scene');
+    addRain();
+    expect(document.getElementById("scene").hasAttribute("rain")).toBeTruthy();
   });
 });

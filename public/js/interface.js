@@ -24,6 +24,7 @@
 
   function addRain() {
     var element = document.getElementById('scene')
+    console.log(element)
     element.setAttribute('rain', '');
   }
 
