@@ -19,11 +19,12 @@
 
   function removeMonolith() {
     var element = document.getElementById('monolith')
-    element.parentNode.removeChild(element);
+    element.removeAttribute('monolith', '');
   }
 
   function addRain() {
     var element = document.getElementById('scene')
+    console.log(element)
     element.setAttribute('rain', '');
   }
 

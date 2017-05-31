@@ -25,6 +25,9 @@
       "intent": "GirlfriendIntent"
     },
     {
+      "intent": "MakersIntent"
+    },
+    {
       "intent": "RandomIntent"
     },
     {

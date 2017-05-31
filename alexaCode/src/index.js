@@ -34,7 +34,8 @@ function determineIntent(intentRequest, callback) {
                        "AddMonolithIntent": "addMonolith",
                        "RemoveMonolithIntent": "removeMonolith",
                        "AddRainIntent": "addRain",
-                       "StopRainIntent": "stopRain"
+                       "StopRainIntent": "stopRain",
+                       "MakersIntent": "school"
                       };
   var intents = ['EarthIntent', 'MarsIntent', 'GirlfriendIntent', 'SpaceIntent', 'OrbitIntent', 'StratosphereIntent', 'SunIntent', 'FalconIntent'];
   if (intentName == 'RandomIntent') {
