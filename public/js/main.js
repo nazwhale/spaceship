@@ -21,8 +21,10 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Changing sky...');
     var intent = payload.notification.title
     console.log(payload.notification.title)
-    if (intent == "monolith") {
+    if (intent == "addMonolith") {
       addMonolith();
+    } else if (intent == "removeMonolith") {
+      removeMonolith();
     } else {
       changeSky("#" + intent);
     }
