@@ -1,14 +1,8 @@
 describe('#eventHandler', function() {
 
   it('recognises an IntentRequest...', function() {
-    spyOn(self, 'determineIntent');
-    eventHandler(marsIntentEvent(), alexaContext());
-    expect(self.determineIntent).toHaveBeenCalled();
-  });
-
-  it('...and sets off a chain of events resulting in a call to Firebase', function() {
     spyOn(self, 'getToken');
-    eventHandler(marsIntentEvent(), alexaContext());
+    eventHandler(planetIntentEvent(), alexaContext());
     expect(self.getToken).toHaveBeenCalled();
   });
 
@@ -19,10 +13,10 @@ describe('#eventHandler', function() {
   });
 
   it('recognises a RandomRequest', function() {
+    spyOn(self, 'getToken');
     eventHandler(randomIntentEvent(), alexaContext());
-    expect(self.intentName).not.toEqual('RandomIntent');
+    expect(self.getToken).toHaveBeenCalled();
   });
-
 
 });
 
@@ -41,21 +35,32 @@ describe('#determineIntent', function() {
 
   it('recongnises a HelpRequest', function() {
     var callback = jasmine.createSpy("callback");
-    determineIntent(helpIntentEvent().request, callback)
-    expect(callback).toHaveBeenCalledWith(buildSpeechResponse("You can go to Mars, Earth or even to the depths of the universe", "Where would you like to go?", true))
+    determineIntent(helpIntentEvent().request, callback);
+    expect(callback).toHaveBeenCalledWith(buildSpeechResponse("You can orbit earth, visit the stratosphere, or go to mars, the sun, or the depths of space.  Or you can ask the spaceship to take you back to earth.", "", true));
   });
 
-
-  it('recognises a MarsIntent', function() {
-    spyOn(self, 'getToken');
-    determineIntent(marsIntentEvent().request, 'callback');
-    expect(self.getToken).toHaveBeenCalledWith('mars', 'callback');
+  it('recognises a PlanetIntent', function() {
+    spyOn(self, 'callFirebaseWithPlanet');
+    determineIntent(planetIntentEvent().request, 'callback');
+    expect(self.callFirebaseWithPlanet).toHaveBeenCalled();
   });
 
-  it('recognises an EarthIntent', function() {
-    spyOn(self, 'getToken');
-    determineIntent(earthIntentEvent().request, 'callback');
-    expect(self.getToken).toHaveBeenCalledWith('earth', 'callback');
+  it('recognises an AddUfoIntent', function() {
+    spyOn(self, 'callFirebaseToAddUfo');
+    determineIntent(addUfoIntentEvent().request, 'callback');
+    expect(self.callFirebaseToAddUfo).toHaveBeenCalled();
+  });
+
+  it('recognises a RemoveUfoIntent', function() {
+    spyOn(self, 'callFirebaseToRemoveUfo');
+    determineIntent(removeUfoIntentEvent().request, 'callback');
+    expect(self.callFirebaseToRemoveUfo).toHaveBeenCalled();
+  });
+
+  it('recognises a RandomInent', function() {
+    spyOn(self, 'callFirebaseWithPlanet');
+    determineIntent(randomIntentEvent().request, 'callback');
+    expect(self.callFirebaseWithPlanet).toHaveBeenCalled();
   });
 
   it('throws an error if handed an invalid intent', function() {
@@ -64,11 +69,25 @@ describe('#determineIntent', function() {
 
 });
 
-describe('#callFirebase', function() {
+describe('#callFirebaseWithPlanet', function() {
   it('makes an API call to firebase', function() {
     request = jasmine.createSpyObj('request',['post']);
-    callFirebase('mars', 'callback');
+    callFirebaseWithPlanet('mars', 'callback','token');
     expect(request.post).toHaveBeenCalled();
+  });
+});
+
+describe('#buildOptions', function() {
+
+  it('creates the hash of data to send to firebase', function() {
+    expect(buildOptions('123456', 'mars')).toEqual({
+      url: 'https://fcm.googleapis.com/fcm/send',
+      headers: {
+        'Authorization': "key=AAAAaI2ZfFw:APA91bGqDh70rNfC8Gtwdxhut5sKhG7td0okEetwnhjWtzvTSC4jJIOReD2nEXkpT4OqMIciJptTxk7Du8MJmvrcW7jTKhiAh7XJYq2kBG2wIQOiwUerx014rpk7nt1JknAS-jdpUJxB",
+        'Content-Type': 'application/json'
+      },
+      json: {"to": '123456',"priority":"high","notification":{"title": 'mars'}}
+    });
   });
 });
 
