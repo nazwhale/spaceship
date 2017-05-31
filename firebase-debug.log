@@ -1,4 +1,35 @@
 [debug] ----------------------------------------------------------------------
+[debug] Command:      /usr/local/Cellar/node/7.10.0/bin/node /usr/local/bin/firebase serve
+[debug] CLI Version:  3.9.0
+[debug] Platform:     darwin
+[debug] Node Version: v7.10.0
+[debug] Time:         Wed May 31 2017 11:47:17 GMT+0100 (BST)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[debug] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/1mPuIvq4--WfhZyPhrl0Vx10yGD907-fJ46YotI1Ng37pXuXjO99xoGL1Vn-DHSw',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Wed May 31 2017 11:47:17 GMT+0100 (BST)
+[debug] <<< HTTP RESPONSE 200
+[debug] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/spaceship-test  
+ Wed May 31 2017 11:47:17 GMT+0100 (BST)
+[debug] <<< HTTP RESPONSE 200
+[debug] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/spaceship-test/tokens  
+ Wed May 31 2017 11:47:18 GMT+0100 (BST)
+[debug] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/Kate/Desktop/spaceship'...
+[info] 
+[debug] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/spaceship-test  
+ Wed May 31 2017 11:47:19 GMT+0100 (BST)
+[debug] <<< HTTP RESPONSE 200
+[debug] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/449052245084/clients/_:getWebAppConfig  
+ Wed May 31 2017 11:47:19 GMT+0100 (BST)
+
 [debug] Command:      /usr/local/bin/node /usr/local/bin/firebase serve
 [debug] CLI Version:  3.9.0
 [debug] Platform:     darwin

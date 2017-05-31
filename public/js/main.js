@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     return messaging.getToken();
   })
   .then(function(token) {
+    captureToken(token);
     console.log(token);
   })
   .catch(function(err){

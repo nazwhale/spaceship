@@ -1,15 +1,15 @@
 describe('#eventHandler', function() {
 
   it('recognises an IntentRequest...', function() {
-    spyOn(self, 'sortIntents');
+    spyOn(self, 'determineIntent');
     eventHandler(marsIntentEvent(), alexaContext());
-    expect(self.sortIntents).toHaveBeenCalled();
+    expect(self.determineIntent).toHaveBeenCalled();
   });
 
   it('...and sets off a chain of events resulting in a call to Firebase', function() {
-    spyOn(self, 'callFirebase');
+    spyOn(self, 'getToken');
     eventHandler(marsIntentEvent(), alexaContext());
-    expect(self.callFirebase).toHaveBeenCalled();
+    expect(self.getToken).toHaveBeenCalled();
   });
 
   it('recognises a LaunchRequest', function() {
@@ -37,29 +37,29 @@ describe('#welcomeOnBoard', function() {
 
 });
 
-describe('#sortIntents', function() {
+describe('#determineIntent', function() {
 
   it('recongnises a HelpRequest', function() {
     var callback = jasmine.createSpy("callback");
-    sortIntents(helpIntentEvent().request, callback)
+    determineIntent(helpIntentEvent().request, callback)
     expect(callback).toHaveBeenCalledWith(buildSpeechResponse("You can go to Mars, Earth or even to the depths of the universe", "Where would you like to go?", true))
   });
 
 
   it('recognises a MarsIntent', function() {
-    spyOn(self, 'callFirebase');
-    sortIntents(marsIntentEvent().request, 'callback');
-    expect(self.callFirebase).toHaveBeenCalledWith('mars', 'callback');
+    spyOn(self, 'getToken');
+    determineIntent(marsIntentEvent().request, 'callback');
+    expect(self.getToken).toHaveBeenCalledWith('mars', 'callback');
   });
 
   it('recognises an EarthIntent', function() {
-    spyOn(self, 'callFirebase');
-    sortIntents(earthIntentEvent().request, 'callback');
-    expect(self.callFirebase).toHaveBeenCalledWith('earth', 'callback');
+    spyOn(self, 'getToken');
+    determineIntent(earthIntentEvent().request, 'callback');
+    expect(self.getToken).toHaveBeenCalledWith('earth', 'callback');
   });
 
   it('throws an error if handed an invalid intent', function() {
-    expect(function() { sortIntents(invalidIntentEvent().request, 'callback'); }).toThrow('Invalid intent');
+    expect(function() { determineIntent(invalidIntentEvent().request, 'callback'); }).toThrow('Invalid intent');
   });
 
 });

@@ -17,7 +17,7 @@ function eventHandler(event, context) {
             context.succeed(buildResponse(event.session.attributes, speechResponse));
           });
         } else if (event.request.type === "IntentRequest") {
-            sortIntents(event.request, function callback(speechResponse) {
+            determineIntent(event.request, function callback(speechResponse) {
               context.succeed(buildResponse(event.session.attributes, speechResponse));
             });
         }
@@ -31,7 +31,7 @@ function welcomeOnBoard(callback) {
   callback(buildSpeechResponse("welcome aboard", "where to captain?", false));
 }
 
-function sortIntents(intentRequest, callback) {
+function determineIntent(intentRequest, callback) {
   var intentName = intentRequest.intent.name;
   var intentsMapping = {"EarthIntent": "earth",
                        "MarsIntent": "mars",
@@ -52,7 +52,7 @@ function sortIntents(intentRequest, callback) {
   } else if (intentName == 'RandomIntent') {
     intentName = intents[Math.floor(Math.random() * intents.length)];
   } else if (intentName in intentsMapping) {
-    callFirebase(intentsMapping[intentName], callback);
+    getToken(intentsMapping[intentName], callback);
   } else {
     throw "Invalid intent";
   }
@@ -62,10 +62,10 @@ function helpUser(callback) {
   callback(buildSpeechResponse("You can go to Mars, Earth or even to the depths of the universe", "Where would you like to go?", true))
 };
 
-function callFirebase(planet, callback) {
+function callFirebase(planet, callback, token) {
   var url = 'https://fcm.googleapis.com/fcm/send';
   var serverKey = "key=AAAAaI2ZfFw:APA91bGqDh70rNfC8Gtwdxhut5sKhG7td0okEetwnhjWtzvTSC4jJIOReD2nEXkpT4OqMIciJptTxk7Du8MJmvrcW7jTKhiAh7XJYq2kBG2wIQOiwUerx014rpk7nt1JknAS-jdpUJxB";
-  var clientToken = "dHfPorgxbLU:APA91bEyxYwDE3QugzQ9ASk-qQMk4zOxJ3auHc3_aedd1GvYX2ObTpCgUqWmkvsy9OVqTEvv2paUbIBs8SoaaV5e6CoIWWnb6Dkqj3qWQ100Ih_0SbaVNMK2w4qTcNBXUU_BqlHNkNRt";
+  var clientToken = token;
   var options = {
     url: url,
     headers: {
@@ -83,6 +83,14 @@ function callFirebase(planet, callback) {
   });
 }
 
+function getToken(planet, callback) {
+  var url = 'https://spaceship-test.firebaseio.com/browserTokens.json?orderBy="timestamp"&limitToLast=1';
+  request.get(url, function(error, response, body) {
+    var jsonObj = JSON.parse(body);
+    for (var firstKey in jsonObj) break;
+    callFirebase(planet, callback, jsonObj[firstKey]['token']);
+  });
+}
 
 function buildSpeechResponse(output, repromptText, shouldEndSession) {
     return {
