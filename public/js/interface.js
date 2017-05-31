@@ -7,6 +7,7 @@
   exports.changeSky = changeSky
 })(this);
 
+
 (function(exports) {
 
   function captureToken(token) {
@@ -26,7 +27,5 @@
       console.log('Browser token saved to DB');
     }
   }
-
-
   exports.captureToken = captureToken
 })(this);

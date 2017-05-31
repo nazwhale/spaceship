@@ -16,7 +16,7 @@ function eventHandler(event, context) {
             context.succeed(buildResponse(event.session.attributes, speechResponse));
           });
         } else if (event.request.type === "IntentRequest") {
-            sortIntents(event.request, function callback(speechResponse) {
+            determineIntent(event.request, function callback(speechResponse) {
               context.succeed(buildResponse(event.session.attributes, speechResponse));
             });
         }
@@ -30,7 +30,7 @@ function welcomeOnBoard(callback) {
   callback(buildSpeechResponse("welcome aboard", "where to captain?", false));
 }
 
-function sortIntents(intentRequest, callback) {
+function determineIntent(intentRequest, callback) {
   var intentName = intentRequest.intent.name;
   var intentsMapping = {"EarthIntent": "earth",
                        "MarsIntent": "mars",
@@ -60,7 +60,7 @@ function helpUser(callback) {
 function callFirebase(planet, callback) {
   var url = 'https://fcm.googleapis.com/fcm/send';
   var serverKey = "key=AAAAaI2ZfFw:APA91bGqDh70rNfC8Gtwdxhut5sKhG7td0okEetwnhjWtzvTSC4jJIOReD2nEXkpT4OqMIciJptTxk7Du8MJmvrcW7jTKhiAh7XJYq2kBG2wIQOiwUerx014rpk7nt1JknAS-jdpUJxB";
-  var clientToken = "ekG7UmwtUzo:APA91bHdZYVy_sjfNwRzJmlsH9tfIKVn2_kXu1rl5eFmSw6HjNAwY-oyXQCyTHr_2sYcmk7ZP-nJgVpOIhFywyhR4EVGYzSqwpIOFHTHItzC9fVDHwAx6riOWa74nkAM_18Ti_R6AKLV";
+  var clientToken = getToken();
   var options = {
     url: url,
     headers: {
@@ -78,6 +78,14 @@ function callFirebase(planet, callback) {
   });
 }
 
+function getToken() {
+  var url = "https://spaceship-test.firebaseio.com/browserTokens.json?orderBy=timestamp&limitToLast=1";
+  request.get(url, function(error, response, body) {
+    jsonObj = JSON.parse(body);
+    for (var firstKey in jsonObj) break;
+    return jsonObj[firstKey]['token'];
+  });
+}
 
 function buildSpeechResponse(output, repromptText, shouldEndSession) {
     return {
