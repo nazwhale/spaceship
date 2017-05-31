@@ -20,7 +20,6 @@ describe('#eventHandler', function() {
 
 });
 
-
 describe('#welcomeOnBoard', function() {
 
   it('builds a speechlet response with a welcome message', function() {
@@ -75,6 +74,32 @@ describe('#callFirebaseWithPlanet', function() {
     callFirebaseWithPlanet('mars', 'callback','token');
     expect(request.post).toHaveBeenCalled();
   });
+});
+
+describe('#reportPlanetChanged', function() {
+
+  it('correctly adds "the" where necessary', function() {
+    var callback = jasmine.createSpy("callback");
+    reportPlanetChanged('sun', callback);
+    expect(callback).toHaveBeenCalledWith(buildSpeechResponse('this is the sun', '', true));
+  });
+
+  it('correctly adds "you are in" where necessary', function() {
+    var callback = jasmine.createSpy("callback");
+    reportPlanetChanged('orbit', callback);
+    expect(callback).toHaveBeenCalledWith(buildSpeechResponse('you are in orbit', '', true));
+  });
+
+});
+
+describe('#reportUfoRemoved', function() {
+
+  it('adds "stopped" or "removed" appropriately', function() {
+    var callback = jasmine.createSpy("callback");
+    reportUfoRemoved('rain', callback);
+    expect(callback).toHaveBeenCalledWith(buildSpeechResponse('rain stopped', '', true));
+  });
+
 });
 
 describe('#buildOptions', function() {
