@@ -31,37 +31,28 @@ function welcomeOnBoard(callback) {
 }
 
 function sortIntents(intentRequest, callback) {
-    var intentName = intentRequest.intent.name;
-    if (intentName == 'RandomIntent') {
-      intentName = intents[Math.floor(Math.random() * intents.length)];
-    }
-    if (intentName == 'EarthIntent') {
-      callFirebase('earth', callback);
-    } else if (intentName == 'MarsIntent') {
-      callFirebase('mars', callback);
-    } else if (intentName == 'GirlfriendIntent') {
-      callFirebase('girlfriend', callback);
-    } else if (intentName == 'SpaceIntent') {
-      callFirebase('space', callback);
-    } else if (intentName == 'OrbitIntent') {
-      callFirebase('orbit', callback);
-    } else if (intentName == 'StratosphereIntent') {
-      callFirebase('stratosphere', callback);
-    } else if (intentName == 'SunIntent') {
-      callFirebase('sun', callback);
-    } else if (intentName == 'FalconIntent') {
-      callFirebase('falcon', callback);
-    } else if (intentName == 'AddMonolithIntent') {
-      console.log("ARE YOU HERE?")
-      callFirebase('addMonolith', callback);
-    } else if (intentName == 'RemoveMonolithIntent') {
-      console.log("PLEASE REMOVE ME")
-      callFirebase('removeMonolith', callback);
-    } else if (intentName == 'AMAZON.HelpIntent') {
-      helpUser(callback);
-    } else {
-      throw "Invalid intent";
-    }
+  var intentName = intentRequest.intent.name;
+  var intentsMapping = {"EarthIntent": "earth",
+                       "MarsIntent": "mars",
+                       "GirlfriendIntent": "girlfriend",
+                       "SpaceIntent": "space",
+                       "OrbitIntent": "orbit",
+                       "StratosphereIntent": "stratosphere",
+                       "SunIntent": "sun",
+                       "FalconIntent": "falcon",
+                       "AddMonolithIntent": "addMonolith",
+                       "RemoveMonolithIntent": "removeMonolith"
+                      };
+
+  if (intentName == 'AMAZON.HelpIntent') {
+    helpUser(callback);
+  } else if (intentName == 'RandomIntent') {
+    intentName = intents[Math.floor(Math.random() * intents.length)];
+  } else if (intentName in intentsMapping) {
+    callFirebase(intentsMapping[intentName], callback);
+  } else {
+    throw "Invalid intent";
+  }
 }
 
 
