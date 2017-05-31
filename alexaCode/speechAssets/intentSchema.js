@@ -28,6 +28,12 @@
       "intent": "RandomIntent"
     },
     {
+      "intent": "AddMonolithIntent"
+    },
+    {
+      "intent": "RemoveMonolithIntent"
+    },
+    {
       "intent": "AMAZON.HelpIntent"
     }
   ]

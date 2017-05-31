@@ -39,7 +39,9 @@ function sortIntents(intentRequest, callback) {
                        "OrbitIntent": "orbit",
                        "StratosphereIntent": "stratosphere",
                        "SunIntent": "sun",
-                       "FalconIntent": "falcon"
+                       "FalconIntent": "falcon",
+                       "AddMonolithIntent": "addMonolith",
+                       "RemoveMonolithIntent": "removeMonolith"
                       };
 
   if (intentName == 'AMAZON.HelpIntent') {
@@ -53,6 +55,7 @@ function sortIntents(intentRequest, callback) {
   }
 }
 
+
 function helpUser(callback) {
   callback(buildSpeechResponse("You can go to Mars, Earth or even to the depths of the universe", "Where would you like to go?", true))
 };
@@ -60,7 +63,7 @@ function helpUser(callback) {
 function callFirebase(planet, callback) {
   var url = 'https://fcm.googleapis.com/fcm/send';
   var serverKey = "key=AAAAaI2ZfFw:APA91bGqDh70rNfC8Gtwdxhut5sKhG7td0okEetwnhjWtzvTSC4jJIOReD2nEXkpT4OqMIciJptTxk7Du8MJmvrcW7jTKhiAh7XJYq2kBG2wIQOiwUerx014rpk7nt1JknAS-jdpUJxB";
-  var clientToken = "ekG7UmwtUzo:APA91bHdZYVy_sjfNwRzJmlsH9tfIKVn2_kXu1rl5eFmSw6HjNAwY-oyXQCyTHr_2sYcmk7ZP-nJgVpOIhFywyhR4EVGYzSqwpIOFHTHItzC9fVDHwAx6riOWa74nkAM_18Ti_R6AKLV";
+  var clientToken = "dHfPorgxbLU:APA91bEyxYwDE3QugzQ9ASk-qQMk4zOxJ3auHc3_aedd1GvYX2ObTpCgUqWmkvsy9OVqTEvv2paUbIBs8SoaaV5e6CoIWWnb6Dkqj3qWQ100Ih_0SbaVNMK2w4qTcNBXUU_BqlHNkNRt";
   var options = {
     url: url,
     headers: {
