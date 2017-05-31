@@ -26,5 +26,12 @@ RemoveMonolithIntent remove
 RemoveMonolithIntent destroy monolith
 RemoveMonolithIntent destroy a monolith
 RemoveMonolithIntent destroy
+AddRainIntent start rain
+AddRainIntent add rain
+AddRainIntent start the rain
+AddRainIntent add the rain
+AddRainIntent make it rain
+StopRainIntent stop rain
+StopRainIntent stop the rain
 AMAZON.HelpIntent where can I go
 AMAZON.HelpIntent what are my options

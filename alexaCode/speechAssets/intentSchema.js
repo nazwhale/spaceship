@@ -34,6 +34,12 @@
       "intent": "RemoveMonolithIntent"
     },
     {
+      "intent": "AddRainIntent"
+    },
+    {
+      "intent": "StopRainIntent"
+    },
+    {
       "intent": "AMAZON.HelpIntent"
     }
   ]
