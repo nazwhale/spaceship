@@ -22,7 +22,7 @@ function welcomeOnBoard(callback) {
 }
 
 function helpUser(callback) {
-  callback(buildSpeechResponse("You can go to Mars, Earth or even to the depths of the universe", "Where would you like to go?", true));
+  callback(buildSpeechResponse("You can orbit earth, visit the stratosphere, or go to mars, the sun, or the depths of space.  Or you can ask the spaceship to take you home.", "", true));
 }
 
 function getToken(intentRequest, callback) {
@@ -100,11 +100,23 @@ function callFirebaseWithPlanet(planet, callback, token) {
   };
   request.post(options, function(error, response, body) {
     if(body.success == 1) {
-      callback(buildSpeechResponse("this is " + planet, "", true));
+      reportPlanetChanged(planet, callback);
     } else {
       callback(buildSpeechResponse("lost in space above all drifting", "", true));
     }
   });
+}
+
+function reportPlanetChanged(planet, callback) {
+  if(['earth', 'mars', 'space'].includes(planet)) {
+    callback(buildSpeechResponse("this is " + planet, "", true));
+  } else if(['sun', 'stratosphere'].includes(planet)) {
+    callback(buildSpeechResponse("this is the " + planet, "", true));
+  } else if(['orbit'].includes(planet)) {
+    callback(buildSpeechResponse("you are in " + planet, "", true));
+  } else if(['girlfriend'].includes(planet)) {
+    callback(buildSpeechResponse("this is your " + planet, "", true));
+  }
 }
 
 function url() {
