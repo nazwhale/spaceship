@@ -7,9 +7,9 @@ describe('#eventHandler', function() {
   });
 
   it('...and sets off a chain of events resulting in a call to Firebase', function() {
-    spyOn(self, 'callFirebase');
+    spyOn(self, 'getToken');
     eventHandler(marsIntentEvent(), alexaContext());
-    expect(self.callFirebase).toHaveBeenCalled();
+    expect(self.getToken).toHaveBeenCalled();
   });
 
   it('recognises a LaunchRequest', function() {
@@ -47,15 +47,15 @@ describe('#determineIntent', function() {
 
 
   it('recognises a MarsIntent', function() {
-    spyOn(self, 'callFirebase');
+    spyOn(self, 'getToken');
     determineIntent(marsIntentEvent().request, 'callback');
-    expect(self.callFirebase).toHaveBeenCalledWith('mars', 'callback');
+    expect(self.getToken).toHaveBeenCalledWith('mars', 'callback');
   });
 
   it('recognises an EarthIntent', function() {
-    spyOn(self, 'callFirebase');
+    spyOn(self, 'getToken');
     determineIntent(earthIntentEvent().request, 'callback');
-    expect(self.callFirebase).toHaveBeenCalledWith('earth', 'callback');
+    expect(self.getToken).toHaveBeenCalledWith('earth', 'callback');
   });
 
   it('throws an error if handed an invalid intent', function() {
