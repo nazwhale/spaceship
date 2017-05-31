@@ -8,7 +8,6 @@ describe('#changeSky', function() {
 });
 
 describe('#Monolith', function() {
-
   it('adds a monolith to the view', function() {
     var dummyElement = document.createElement('div');
     spyOn(document, 'querySelector').and.returnValue(dummyElement);
@@ -26,11 +25,9 @@ describe('#Monolith', function() {
     removeMonolith();
     expect(dummyElement.innerHTML).not.toContain("id='monolith'");
   });
-
 });
 
 describe('#Rain', function() {
-
   it('add a nice refreshing rain to the view', function() {
     dummyElement = document.createElement('div');
     spyOn(document, 'getElementById').and.returnValue(dummyElement);
@@ -49,5 +46,4 @@ describe('#Rain', function() {
     stopRain();
     expect(document.getElementById("scene").hasAttribute("rain")).toBeFalsy();
   });
-
 });
