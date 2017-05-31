@@ -17,6 +17,14 @@ function eventHandler(event, context) {
   }
 }
 
+function welcomeOnBoard(callback) {
+  callback(buildSpeechResponse("welcome aboard", "where to captain?", false));
+}
+
+function helpUser(callback) {
+  callback(buildSpeechResponse("You can go to Mars, Earth or even to the depths of the universe", "Where would you like to go?", true));
+}
+
 function getToken(intentRequest, callback) {
   var url = 'https://spaceship-test.firebaseio.com/browserTokens.json?orderBy="timestamp"&limitToLast=1';
   request.get(url, function(error, response, body) {
@@ -24,11 +32,6 @@ function getToken(intentRequest, callback) {
     for (var firstKey in jsonObj) break;
     determineIntent(intentRequest, callback, jsonObj[firstKey]['token']);
   });
-}
-
-
-function welcomeOnBoard(callback) {
-  callback(buildSpeechResponse("welcome aboard", "where to captain?", false));
 }
 
 function determineIntent(intentRequest, callback, token) {
@@ -51,16 +54,13 @@ function determineIntent(intentRequest, callback, token) {
 }
 
 function callFirebaseToRemoveUfo(ufo, callback, token) {
-  var url = 'https://fcm.googleapis.com/fcm/send';
-  var serverKey = "key=AAAAaI2ZfFw:APA91bGqDh70rNfC8Gtwdxhut5sKhG7td0okEetwnhjWtzvTSC4jJIOReD2nEXkpT4OqMIciJptTxk7Du8MJmvrcW7jTKhiAh7XJYq2kBG2wIQOiwUerx014rpk7nt1JknAS-jdpUJxB";
-  var clientToken = token;
   var options = {
-    url: url,
+    url: url(),
     headers: {
-      'Authorization': serverKey,
+      'Authorization': serverKey(),
       'Content-Type': 'application/json'
     },
-    json: {"to": clientToken,"priority":"high","notification":{"title": 'remove' + ufo}}
+    json: {"to": token,"priority":"high","notification":{"title": 'remove' + ufo}}
   };
   request.post(options, function(error, response, body) {
     if(body.success == 1) {
@@ -72,16 +72,13 @@ function callFirebaseToRemoveUfo(ufo, callback, token) {
 }
 
 function callFirebaseToAddUfo(ufo, callback, token) {
-  var url = 'https://fcm.googleapis.com/fcm/send';
-  var serverKey = "key=AAAAaI2ZfFw:APA91bGqDh70rNfC8Gtwdxhut5sKhG7td0okEetwnhjWtzvTSC4jJIOReD2nEXkpT4OqMIciJptTxk7Du8MJmvrcW7jTKhiAh7XJYq2kBG2wIQOiwUerx014rpk7nt1JknAS-jdpUJxB";
-  var clientToken = token;
   var options = {
-    url: url,
+    url: url(),
     headers: {
-      'Authorization': serverKey,
+      'Authorization': serverKey(),
       'Content-Type': 'application/json'
     },
-    json: {"to": clientToken,"priority":"high","notification":{"title": ufo}}
+    json: {"to": token,"priority":"high","notification":{"title": ufo}}
   };
   request.post(options, function(error, response, body) {
     if(body.success == 1) {
@@ -92,21 +89,14 @@ function callFirebaseToAddUfo(ufo, callback, token) {
   });
 }
 
-function helpUser(callback) {
-  callback(buildSpeechResponse("You can go to Mars, Earth or even to the depths of the universe", "Where would you like to go?", true));
-}
-
 function callFirebaseWithPlanet(planet, callback, token) {
-  var url = 'https://fcm.googleapis.com/fcm/send';
-  var serverKey = "key=AAAAaI2ZfFw:APA91bGqDh70rNfC8Gtwdxhut5sKhG7td0okEetwnhjWtzvTSC4jJIOReD2nEXkpT4OqMIciJptTxk7Du8MJmvrcW7jTKhiAh7XJYq2kBG2wIQOiwUerx014rpk7nt1JknAS-jdpUJxB";
-  var clientToken = token;
   var options = {
-    url: url,
+    url: url(),
     headers: {
-      'Authorization': serverKey,
+      'Authorization': serverKey(),
       'Content-Type': 'application/json'
     },
-    json: {"to": clientToken,"priority":"high","notification":{"title": planet}}
+    json: {"to": token,"priority":"high","notification":{"title": planet}}
   };
   request.post(options, function(error, response, body) {
     if(body.success == 1) {
@@ -117,7 +107,12 @@ function callFirebaseWithPlanet(planet, callback, token) {
   });
 }
 
-
+function url() {
+  return 'https://fcm.googleapis.com/fcm/send';
+}
+function serverKey() {
+  return "key=AAAAaI2ZfFw:APA91bGqDh70rNfC8Gtwdxhut5sKhG7td0okEetwnhjWtzvTSC4jJIOReD2nEXkpT4OqMIciJptTxk7Du8MJmvrcW7jTKhiAh7XJYq2kBG2wIQOiwUerx014rpk7nt1JknAS-jdpUJxB";
+}
 
 function buildSpeechResponse(output, repromptText, shouldEndSession) {
     return {
