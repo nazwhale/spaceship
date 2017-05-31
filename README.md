@@ -95,7 +95,7 @@ We ended the day with a brainstorm on what the following days will be about. We 
 
 With Alexa linked up to our code on Firebase, today we went into warp drive.  We added new features to Alexa in the morning, and in the afternoon started adding more interesting elements to our VR experience.  Before long our space odyssey had its very own monolith, capable of travelling to all corners of the universe in order to loom mysteriously. 
 
-Towards the end of the day, sadly, we got blocked by a single knarly Jasmine test, and eventually had to admit temporary defeat.
+Towards the end of the day, sadly, we got blocked by a single gnarly Jasmine test, and eventually had to admit temporary defeat.
 
 Tomorrow, however, we will boldy venture onward.
 
