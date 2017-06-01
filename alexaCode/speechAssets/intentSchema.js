@@ -10,6 +10,9 @@
       "intent": "PlanetIntent"
     },
     {
+      "intent": "MakersIntent"
+    },
+    {
       "intent": "RandomIntent"
     },
     {

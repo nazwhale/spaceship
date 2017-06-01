@@ -37,6 +37,7 @@ function getToken(intentRequest, callback) {
 function determineIntent(intentRequest, callback, token) {
   var intentName = intentRequest.intent.name;
   var planets = ['earth', 'mars', 'girlfriend', 'space', 'orbit', 'stratosphere', 'sun', 'falcon'];
+
   if (intentName == 'RandomIntent') {
     planet = planets[Math.floor(Math.random() * planets.length)];
     callFirebaseWithPlanet(planet, callback, token);
