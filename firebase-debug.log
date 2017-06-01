@@ -1,9 +1,11 @@
 [debug] ----------------------------------------------------------------------
+
 [debug] Command:      /usr/local/bin/node /usr/local/bin/firebase serve
 [debug] CLI Version:  3.9.0
 [debug] Platform:     darwin
 [debug] Node Version: v6.10.2
 [debug] Time:         Thu Jun 01 2017 10:30:04 GMT+0100 (BST)
+
 [debug] ----------------------------------------------------------------------
 [debug] 
 [debug] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
@@ -32,4 +34,5 @@
 [debug] <<< HTTP RESPONSE 200
 [info] i  hosting: Serving hosting files from: public
 [info] ✔  hosting: Local server: http://localhost:5000
+
 
