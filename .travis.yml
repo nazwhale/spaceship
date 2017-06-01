@@ -2,3 +2,12 @@ language: node_js
 node_js:
   - "iojs"
   - "6"
+script:
+  - echo 'Hello Firebase'
+before_install:
+before_script:
+  - npm install
+  - npm install -g firebase-tools
+cache:
+  directories:
+    - "node_modules"
