@@ -99,13 +99,13 @@ function reportPlanetChanged(planet, callback) {
   if(['earth', 'mars', 'space'].includes(planet)) {
     callback(buildSpeechResponse("this is " + planet, "", true));
   } else if(['sun', 'stratosphere'].includes(planet)) {
-    callback(buildSpeechResponse("this is the " + planet + ", hope you brought sun cream", "", true));
+    callback(buildSpeechResponse("this is the " + planet, "", true));
   } else if(['orbit'].includes(planet)) {
     callback(buildSpeechResponse("you are in " + planet, "", true));
   } else if(['girlfriend'].includes(planet)) {
     callback(buildSpeechResponse("this is your " + planet + ", I'm going to leave and give you some private time", "", true));
   } else if(['makers'].includes(planet)) {
-    callback(buildSpeechResponse("welcome to makers " + planet, "", true));
+    callback(buildSpeechResponse("welcome to makers", "", true));
   }
 }
 
