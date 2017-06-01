@@ -69,6 +69,11 @@ As a Space Developer,
 So that my VR experience can be available to anyone,
 I would like it to deploy it as a website.
 ```
+```
+As a Space Developer,
+So that I can enhance my VR experience,
+I would like to manipulate the reality I'm viewing.
+```
 
 ### Technologies Used
 - A-Frame
@@ -77,6 +82,8 @@ I would like it to deploy it as a website.
 - AWS Lambda
 - Firebase
 - Jasmine
+- JavaScript
+- Node.js
 
 ### Log Book
 #### Day 1
@@ -113,13 +120,13 @@ A great end to a tough day, searching for our purpose...but we're one step close
 *Chief engineer Calbayrac's log, stardate 24.5.2017* -
 *Writing from the HMS Challenger.*
 
-A new day, a new adventure. Like every morning we gathered on the conference room to speak about our strategies for the day. Our main focus is on Alexa, our new onboard Artificial Intelligence.
+A new day, a new adventure. Like every morning we gathered on the conference room to determine our strategies for the day. Our main focus is on Alexa, our new onboard Artificial Intelligence.
 
-Even if it’s extremely powerful it is still fairly new and we are trying to find its limits. That’s why we tried, by working in pairs, to build different simple skills. After having fun creating a question game about video games, we started doing research to know how to link Alexa to our VR website experience.
+Even if it’s extremely powerful it is still fairly new and we are trying to find its limits. That’s why we tried by working in pairs to build different simple skills. After having fun creating a question game about video games, we started doing research to know how to link Alexa to our VR website experience.
 
-One thing came out of that: we need to be able to update our website on the go. By the end of the day we moved to [Firebase](https://firebase.google.com/), a platform giving us the flexibility we were looking for. But we had to leave school to find refuge in an Alexa event.
+One key thing came out this: we need to be able to update our website on the go. By the end of the day we moved to [Firebase](https://firebase.google.com/), a platform giving us the flexibility we were looking for. But we had to leave school to find refuge in an Alexa event.
 
-Even if the talk was not quite what we hope for, we got the chance to ask the questions we were seeking answers for. And if it was not good enough a second talk about A-Frame (the 3D JavaScript framework we are using) was hosted at the same time. Major Naz went to attend this one while the rest of the crew staid for the Alexa one.
+Even if the talk was not quite what we hope for, we got the chance to ask the questions we were seeking answers for. And if it was not good enough a second talk about A-Frame (the 3D JavaScript framework we are using) was hosted at the same time. Major Naz went to attend this one while the rest of the crew stayed for the Alexa one.
 
 Finally, I took the space shuttle to return to the mother base, looking at the sun disappearing in the distance, warm and safe.
 
@@ -146,7 +153,7 @@ After splitting into two orbiting modules on day 4, both teams ventured into the
 
 The Firebase team looked to edit our VR views using cURL requests from the command line. First a 'listener' was created using Firebase's 'messaging' functionality, and after a bit of tinkering, we managed to send it a signal via cURL. The listener listened and the view changed.
 
-Later we looked to create the same effect via an HTTPS POST request from AWS Lambda. After some hard graft, we achieved this from the browser console. Later that evening, after a rocket fuel injection, Ensign Gleeson managed to insert the code into AWS Lambda and specify the Alexa intents to change views. Finally sweet contact was made.
+Later we looked to create the same effect via an HTTPS POST request from AWS Lambda. After some hard graft, we achieved this from the browser console. Later that evening, after a rocket fuel injection, Kate "beam-me-up" Gleeson managed to insert the code into AWS Lambda and specify the Alexa intents to change views. Finally sweet contact was made.
 
 #### Day 6 - 7
 
@@ -179,8 +186,8 @@ Tomorrow, however, we will boldly venture onward.
 
 After yesterdays temporary defeat we regrouped, had standup and came up with a new plan. Step one, eliminate the failing test. Chief engineer Calbayrac and I finally located the error and fixed it! This rejuvenated the crew and we were able to continue our voyage.
 
-Step two, initiate addRain() from Alexa. Major Naz & Ensign Gleeson integrated a new feature whilst refactoring that enabled us to control the weather on any planet we visited.
+Step two, initiate addRain() from Alexa. Major Naz & Kate "beam-me-up" Gleeson integrated a new feature whilst refactoring that enabled us to control the weather on any planet we visited.
 
-Lastly as a crew we upgraded our ship computer's (Alexa) responses. This meant configuring her to give us clearer responses that helped with the overall navigation experience.
+Lastly as a crew we upgraded our ship computer (Alexa). This meant configuring her to give us clearer responses that helped with the overall navigation experience.
 
 Today gave us much joy and at the end we felt like we'd conquered the universe.
