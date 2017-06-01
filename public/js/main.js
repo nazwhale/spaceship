@@ -19,11 +19,12 @@ document.addEventListener('DOMContentLoaded', function() {
   messaging.onMessage(function(payload){
     console.log('Changing sky...');
     var intent = payload.notification.title
-    
+
     if (intent == "monolith") {
       addMonolith();
     } else if (intent == "removemonolith") {
       removeMonolith();
+      console.log('removeMonolith was run!');
     } else if (intent == "rain") {
       addRain();
     } else if (intent == "removerain") {
@@ -33,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     console.log('Sky changed!');
 
-  })
+  });
 
   // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
 
