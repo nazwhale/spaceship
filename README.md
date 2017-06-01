@@ -12,7 +12,8 @@ We're a team of four aiming to build a Virtual Reality experience to view differ
 
 ### Log Book
 #### Day 1
-*Major Naz's log, stardate 22.5.2017*
+*Major Naz's log, stardate 22.5.2017* -
+*Writing from the HMS Challenger.*
 
 After arriving at Makers Academy HQ, the four of us gathered for a design sprint. We planned to interact with virtual reality using voice commands to Amazon's Alexa in order to transport the user to different planets. However, we first needed to clarify an MVP.
 
@@ -28,7 +29,8 @@ The earth looks mighty fine from up here.
 
 
 #### Day 2
-*Lunar Module Pilot Odendaal's log, stardate 23.5.2017*
+*Lunar Module Pilot Odendaal's log, stardate 23.5.2017* -
+*Writing from the HMS Challenger.*
 
 Building on our day 1 success we were all energized to dive a little deeper into VR. However after a good start we kept hitting blockers and our lack of experience in VR was becoming apparent. Post lunch we changed course and experiment with using [A-Frame](https://aframe.io) to build our VR model. Being built by the originators of WebVR and providing a clear structure to use `three.js`, we were starting to see immediate results.
 
@@ -40,7 +42,8 @@ A great end to a tough day, searching for our purpose...but we're one step close
 
 
 #### Day 3
-*Chief engineer Calbayrac's log, stardate 24.5.2017*
+*Chief engineer Calbayrac's log, stardate 24.5.2017* -
+*Writing from the HMS Challenger.*
 
 A new day, a new adventure. Like every morning we gathered on the conference room to speak about our strategies for the day. Our main focus is on Alexa, our new onboard Artificial Intelligence.
 
@@ -56,7 +59,8 @@ Finally, I took the space shuttle to return to the mother base, looking at the s
 
 
 #### Day 4
-*Kate "beam-me-up" Gleeson's log, stardate 25.5.2017*  
+*Kate "beam-me-up" Gleeson's log, stardate 25.5.2017* -
+*Writing from the HMS Challenger.*
 
 On the fourth day of our voyage we found ourselves exploring unmapped frontiers in the form of Alexa and Firebase.  It was all a bit scary to say the least.  
 
@@ -67,7 +71,8 @@ Today we split into two teams, tackling the problem from both ends (AWS Lambda a
 The mission continues…
 
 #### Day 5
-*Major Naz's log, stardate 26.5.2017*
+*Major Naz's log, stardate 26.5.2017* -
+*Writing from the HMS Challenger.*
 
 After splitting into two orbiting modules on day 4, both teams ventured into the deep space between AWS Lambda and Firebase, hoping to meet someday.
 
@@ -91,7 +96,8 @@ After lunch we were able, with the help of the database in Firebase, to save the
 We ended the day with a brainstorm on what the next steps could be. We are going to focus on the user experience, make sure that it’s easy for every user to enjoy our VR. For that, we are going to need to fetch browser token's, but how? We have a couple of good ways to test our app. It’s gonna be challenging but we live for that. We are Challengers!
 
 #### Day 8
-*Kate "beam-me-up" Gleeson's log, stardate 30.5.2017*
+*Kate "beam-me-up" Gleeson's log, stardate 30.5.2017* -
+*Writing from the HMS Challenger.*
 
 With Alexa linked up to our code on Firebase, today we went into warp drive.  We added new features to Alexa in the morning, and in the afternoon started adding more interesting elements to our VR experience.  Before long our space odyssey had its very own monolith, capable of travelling to all corners of the universe in order to loom mysteriously.
 
@@ -100,7 +106,8 @@ Towards the end of the day, sadly, we got blocked by a single gnarly Jasmine tes
 Tomorrow, however, we will boldly venture onward.
 
 #### Day 9
-*Lunar Module Pilot Odendaal log, stardate 31.5.2017*
+*Lunar Module Pilot Odendaal log, stardate 31.5.2017* -
+*Writing from the HMS Challenger.*
 
 After yesterdays temporary defeat we regrouped, had standup and came up with a new plan. Step one, eliminate the failing test. Chief engineer Calbayrac and I finally located the error and fixed it! This rejuvenated the crew and we were able to continue our voyage.
 
