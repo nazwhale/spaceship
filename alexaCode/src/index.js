@@ -104,8 +104,8 @@ function reportPlanetChanged(planet, callback) {
     callback(buildSpeechResponse("you are in " + planet, "", true));
   } else if(['girlfriend'].includes(planet)) {
     callback(buildSpeechResponse("this is your " + planet + ", I'm going to leave and give you some private time", "", true));
-  } else if(['hq'].includes(planet)) {
-    callback(buildSpeechResponse("welcome to the Makers " + planet, "", true));
+  } else if(['makers'].includes(planet)) {
+    callback(buildSpeechResponse("welcome to makers " + planet, "", true));
   }
 }
 
