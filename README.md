@@ -112,26 +112,31 @@ Today gave us much joy and at the end we felt like we'd conquered the universe.
 
 
 ### User Stories
-
+```
+As a Space User,
+So that I can explore strange new worlds,
+I would like to have an immersive VR experience of intergalactic environments.
+```
+```
+As a Space User,
+So that I can travel without leaving the VR experience,
+I would like to be able to give orders by voice to an Alexa Skill.
+```
+```
+As a Space User,
+So that I can explore the frontiers of space,
+I would like to have multiple choices available as destinations.
+```
+```
 * As a Space User,
-  So that I can explore strange new worlds,
-  I would like to have an immersive VR experience of intergalactic environments.
-
-* As a Space User,
-  So that I can travel without leaving the VR experience,
-  I would like to be able to give orders by voice to an Alexa Skill.
-
-* As a Space User,
-  So that I can explore the frontiers of space,
-  I would like to have multiple choices available as destinations.
-
-* As a Space User,
-  So that I can enjoy my VR experience at low cost,
-  I would like it to be available on Google Cardboard.
-
-* As a Space Developer,
-  So that my VR experience can be available for free to anyone,
-  I would like it to deploy it as a website.
+So that I can enjoy my VR experience at low cost,
+I would like it to be available on Google Cardboard.
+```
+```
+As a Space Developer,
+So that my VR experience can be available for free to anyone,
+I would like it to deploy it as a website.
+```
 
 ### Technology
 TBC
