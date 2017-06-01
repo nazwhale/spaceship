@@ -1,14 +1,82 @@
 #  ![MASA](public/images/Masa_small.jpg) Virtual Reality Spaceship
-###### A project by the Makers Academy Space Administration
+###### A project by the Makers Academy Space Academy
 ***
 
-### Crew
-We're a team of four aiming to build a Virtual Reality experience to view different locations in space via interactions with voice recognition technology.
+### Mission Statement
 
-- [Naz Malik](https://github.com/nazwhale)
-- [Kate Gleeson](https://github.com/allbecauseyoutoldmeso)
-- [Jean-Jacques Calbayrac](https://github.com/gekographe)
-- [Ruan Odendaal](https://github.com/ruanodendaal)
+To use voice interaction to manipulate Virtual Reality.
+
+To explore strange new worlds, to seek out new life and new civilisations, to boldly go where no man has gone before.
+
+### Crew
+We're a team of four developers based in London, none of which had written a line of code 5 months ago. The Makers Academy Space Academy are:
+
+- [Chief Engineer Calbayrac](https://github.com/gekographe)
+- [Kate "beam-me-up" Gleeson](https://github.com/allbecauseyoutoldmeso)
+- [Major Naz](https://github.com/nazwhale)
+- [Lunar Module Pilot Odendaal](https://github.com/ruanodendaal)
+
+### Use Instructions
+
+To view our virtual reality experience, you can visit `www.spaceship-test.firebaseapp.com`.
+
+On a mobile, place your phone inside a Google Cardboard VR headset (or similar) and tap the VR Goggles icon. With an Alexa with the Spaceship skill enabled, you can manipulate the VR view via voice commands. For example:
+- "Alexa, ask Spaceship to take me to mars"
+- "Alexa, ask Spaceship to make it rain"
+- "Alexa, ask Spaceship to add Monolith"
+- "Alexa, ask Spaceship to surprise me"
+- "Alexa, ask Spaceship to tell me where I can go"
+
+As our Alexa skill is not yet published, you will not yet be able to manipulate your VR experience with your own Alexa. However, if you go to our site on a desktop browser and open the console (`cmd+alt+i`), you can manually type in a variety of commands to manipulate the scene.
+
+Here are a few you can try:
+```
+changeSky('#mars');
+changeSky('#stratosphere');
+changeSky('#orbit');
+changeSky('#mars');
+addMonolith();
+removeMonolith();
+addRain();
+stopRain();
+```
+
+If you really want to give it a go with your own Alexa, we have included the code for the Spaceship skill in this repository. Feel free to create your own Alexa skill and use our code. To do so, you'll need to sign up with [Amazon Developers](https://developer.amazon.com/) and [AWS](https://aws.amazon.com/).
+
+### User Stories
+```
+As an Intergalactic Tourist,
+So that I can explore strange new worlds,
+I would like to have an immersive VR experience of intergalactic environments.
+```
+```
+As an Intergalactic Tourist,
+So that I can have a more immersive VR experience,
+I would like to be able to give voice commands to an Alexa Skill.
+```
+```
+As an Intergalactic Tourist,
+So that I can explore the frontiers of space,
+I would like to have destinations available.
+```
+```
+As an Intergalactic Tourist,
+So that I can enjoy my VR experience at low cost,
+I would like it to be available on Google Cardboard.
+```
+```
+As a Space Developer,
+So that my VR experience can be available to anyone,
+I would like it to deploy it as a website.
+```
+
+### Technologies Used
+- A-Frame
+- Google Cardboard
+- Amazon's Alexa
+- AWS Lambda
+- Firebase
+- Jasmine
 
 ### Log Book
 #### Day 1
@@ -62,7 +130,7 @@ Finally, I took the space shuttle to return to the mother base, looking at the s
 *Kate "beam-me-up" Gleeson's log, stardate 25.5.2017* -
 *Writing from the HMS Challenger.*
 
-On the fourth day of our voyage we found ourselves exploring unmapped frontiers in the form of Alexa and Firebase.  It was all a bit scary to say the least.  
+On the fourth day of our voyage we found ourselves exploring unmapped frontiers in the form of Alexa and Firebase.  It was all a bit scary to say the least.
 
 We already had the code to render our immersive interplanetary experience.  The next step was to teach Alexa to take the user to wherever said user asked.  Our intrepid coding team had attended talks, fired off emails, and interrogated every available expert, and concluded that Firebase might be the solution to the problem, functioning as an intermediary between AWS Lambda (the platform running our Alexa code) and the user’s device browser.
 
@@ -116,34 +184,3 @@ Step two, initiate addRain() from Alexa. Major Naz & Ensign Gleeson integrated a
 Lastly as a crew we upgraded our ship computer's (Alexa) responses. This meant configuring her to give us clearer responses that helped with the overall navigation experience.
 
 Today gave us much joy and at the end we felt like we'd conquered the universe.
-
-
-### User Stories
-```
-As a Space User,
-So that I can explore strange new worlds,
-I would like to have an immersive VR experience of intergalactic environments.
-```
-```
-As a Space User,
-So that I can travel without leaving the VR experience,
-I would like to be able to give orders by voice to an Alexa Skill.
-```
-```
-As a Space User,
-So that I can explore the frontiers of space,
-I would like to have multiple choices available as destinations.
-```
-```
-* As a Space User,
-So that I can enjoy my VR experience at low cost,
-I would like it to be available on Google Cardboard.
-```
-```
-As a Space Developer,
-So that my VR experience can be available for free to anyone,
-I would like it to deploy it as a website.
-```
-
-### Technology
-TBC
