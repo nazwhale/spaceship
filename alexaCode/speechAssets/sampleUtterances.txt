@@ -1,38 +1,37 @@
-MarsIntent take me to mars
-MarsIntent to take me to mars
-EarthIntent take me home
-EarthIntent take me to earth
-EarthIntent to take me to earth
-FalconIntent take me to the falcon
-FalconIntent take me to the millenium falcon
-StratosphereIntent take me to the stratosphere
-SpaceIntent take me to space
-OrbitIntent take me into orbit
-SunIntent take me to the sun
-GirlfriendIntent i want to lie in the grass with my girlfriend
-MakersIntent bring me to makers academy
+PlanetIntent take me to {planet}
+PlanetIntent to take me to {planet}
+PlanetIntent take me to my {planet}
+PlanetIntent to take me to my {planet}
+PlanetIntent take me into {planet}
+PlanetIntent to take me into {planet}
+PlanetIntent i want to lie in the grass with my {planet}
 RandomIntent take me to a random location
 RandomIntent random
+RandomIntent to take me to a random location
 RandomIntent surprise me
+RandomIntent to surprise me
 RandomIntent I'm feeling lucky
-AddMonolithIntent add monolith
-AddMonolithIntent add a monolith
-AddMonolithIntent add
-AddMonolithIntent create monolith
-AddMonolithIntent create a monolith
-AddMonolithIntent create
-RemoveMonolithIntent remove monolith
-RemoveMonolithIntent remove a monolith
-RemoveMonolithIntent remove
-RemoveMonolithIntent destroy monolith
-RemoveMonolithIntent destroy a monolith
-RemoveMonolithIntent destroy
-AddRainIntent start rain
-AddRainIntent add rain
-AddRainIntent start the rain
-AddRainIntent add the rain
-AddRainIntent make it rain
-StopRainIntent stop rain
-StopRainIntent stop the rain
 AMAZON.HelpIntent where can I go
 AMAZON.HelpIntent what are my options
+AddUfoIntent add {ufo}
+AddUfoIntent to add {ufo}
+AddUfoIntent to add a {ufo}
+AddUfoIntent show me {ufo}
+AddUfoIntent make it {ufo}
+RemoveUfoIntent remove {ufo}
+RemoveUfoIntent remove the {ufo}
+RemoveUfoIntent stop {ufo}
+RemoveUfoIntent stop the {ufo}
+
+LIST_OF_PLANETS
+earth
+mars
+girlfriend
+space
+orbit
+stratosphere
+sun
+
+LIST_OF_UFOS
+monolith
+rain

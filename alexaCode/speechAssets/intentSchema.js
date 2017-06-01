@@ -1,28 +1,13 @@
 {
   "intents": [
     {
-      "intent": "MarsIntent"
-    },
-    {
-      "intent": "EarthIntent"
-    },
-    {
-      "intent": "FalconIntent"
-    },
-    {
-      "intent": "StratosphereIntent"
-    },
-    {
-      "intent": "SpaceIntent"
-    },
-    {
-      "intent": "OrbitIntent"
-    },
-    {
-      "intent": "SunIntent"
-    },
-    {
-      "intent": "GirlfriendIntent"
+      "slots": [
+        {
+          "name": "planet",
+          "type": "LIST_OF_PLANETS"
+        }
+      ],
+      "intent": "PlanetIntent"
     },
     {
       "intent": "MakersIntent"
@@ -31,19 +16,25 @@
       "intent": "RandomIntent"
     },
     {
-      "intent": "AddMonolithIntent"
-    },
-    {
-      "intent": "RemoveMonolithIntent"
-    },
-    {
-      "intent": "AddRainIntent"
-    },
-    {
-      "intent": "StopRainIntent"
-    },
-    {
       "intent": "AMAZON.HelpIntent"
+    },
+    {
+      "slots": [
+        {
+          "name": "ufo",
+          "type": "LIST_OF_UFOS"
+        }
+      ],
+      "intent": "AddUfoIntent"
+    },
+    {
+      "slots": [
+        {
+          "name": "ufo",
+          "type": "LIST_OF_UFOS"
+        }
+      ],
+      "intent": "RemoveUfoIntent"
     }
   ]
 }
