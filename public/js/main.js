@@ -1,5 +1,3 @@
-// var functions = require('firebase-functions');
-
 document.addEventListener('DOMContentLoaded', function() {
   // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
   // // The Firebase SDK is initialized and available here!
@@ -21,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
   messaging.onMessage(function(payload){
     console.log('Changing sky...');
     var intent = payload.notification.title
-    console.log(payload.notification.title)
+    
     if (intent == "monolith") {
       addMonolith();
     } else if (intent == "removemonolith") {
@@ -39,12 +37,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
 
-  try {
-    let app = firebase.app();
-    let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
-    document.getElementsByTagName('body').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
-  } catch (e) {
-    console.error(e);
-    document.getElementsByTagName('body').innerHTML = 'Error loading the Firebase SDK, check the console.';
-  }
 });
