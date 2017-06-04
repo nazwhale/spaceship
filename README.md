@@ -1,12 +1,11 @@
 #  ![MASA](public/images/Masa_small.jpg) Virtual Reality Spaceship
 ###### A project by the Makers Academy Space Academy
+
 ***
 
-### Mission Statement
+### Mission
 
-To use voice interaction to manipulate Virtual Reality.
-
-To explore strange new worlds, to seek out new life and new civilisations, to boldly go where no man has gone before.
+To use voice interaction (with Amazon's Alexa) to manipulate Virtual Reality.
 
 ### Crew
 We're a team of four developers based in London, none of which had written a line of code 5 months ago. The Makers Academy Space Academy are:
